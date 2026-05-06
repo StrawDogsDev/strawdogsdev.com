@@ -1,0 +1,36 @@
+---
+const models = [
+  {
+    title: "Referral Network",
+    body: "We refer authors who need your packaging, distribution, and marketing engine. You refer authors who arrive needing a writer. Standard industry referral terms (typically 10%) apply both directions.",
+  },
+  {
+    title: "White-Label Writing Engine",
+    body: "We function as your in-house ghostwriting capability under your imprint. The author works with us; the credit, the relationship, and the book belong to your house.",
+  },
+  {
+    title: "Project Engagement",
+    body: "Direct, scoped, by deliverable. Full ghostwrite, framework architecture, manuscript repair, or developmental edit—priced by the hours the work actually demands.",
+  },
+];
+---
+
+<section class="section-rule py-16 sm:py-20 px-6 fade-in">
+  <div class="max-w-5xl mx-auto">
+    <div class="mb-10 sm:mb-12">
+      <p class="eyebrow mb-3">Engagement Models</p>
+      <h2 class="font-heading text-3xl sm:text-4xl leading-tight">How Publishers Work With Us</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-x-10 gap-y-8">
+      {models.map((m) => (
+        <div class="border-t border-rule-strong pt-5">
+          <h3 class="text-xs tracking-[0.22em] uppercase font-semibold text-navy mb-3">
+            {m.title}
+          </h3>
+          <p class="text-navy-soft leading-relaxed text-[0.95rem]">{m.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

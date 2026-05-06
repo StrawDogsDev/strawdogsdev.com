@@ -1,0 +1,50 @@
+---
+---
+
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-cream/0">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-xs tracking-[0.22em] uppercase font-medium text-navy hover:text-gold transition-colors">
+      Straw Dogs <span class="text-navy-muted">LLC</span>
+    </a>
+
+    <div class="flex items-center gap-8">
+      <a
+        href="#method"
+        class="hidden sm:inline-block text-xs tracking-[0.18em] uppercase text-navy-soft hover:text-navy transition-colors"
+      >
+        Method
+      </a>
+      <a
+        href="#team"
+        class="hidden sm:inline-block text-xs tracking-[0.18em] uppercase text-navy-soft hover:text-navy transition-colors"
+      >
+        Team
+      </a>
+      <a
+        href="#work"
+        class="hidden sm:inline-block text-xs tracking-[0.18em] uppercase text-navy-soft hover:text-navy transition-colors"
+      >
+        Work
+      </a>
+      <a
+        href="#contact"
+        class="text-xs tracking-[0.18em] uppercase text-gold hover:text-navy transition-colors"
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav?.classList.add('bg-cream/95', 'backdrop-blur-sm');
+      nav?.style.setProperty('border-bottom', '1px solid rgba(26, 35, 50, 0.12)');
+    } else {
+      nav?.classList.remove('bg-cream/95', 'backdrop-blur-sm');
+      nav?.style.setProperty('border-bottom', 'none');
+    }
+  });
+</script>

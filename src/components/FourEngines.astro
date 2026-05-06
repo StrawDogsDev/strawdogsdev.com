@@ -1,0 +1,56 @@
+---
+const engines = [
+  {
+    number: "01",
+    name: "Conflict",
+    label: "The attentional gate",
+    description: "Without a gap between what is and what should be, the reader's brain never engages. Most books open with information. The ones that land open with tension."
+  },
+  {
+    number: "02",
+    name: "Character",
+    label: "A before-state to inhabit",
+    description: "Not biography. The reader must see themselves in the protagonist's position before transformation—or they observe the book instead of entering it."
+  },
+  {
+    number: "03",
+    name: "Change",
+    label: "The identity shift",
+    description: "Not simply new information, but a new answer to who am I. The books that change people make the old version of the reader impossible to return to."
+  },
+  {
+    number: "04",
+    name: "Stakes",
+    label: "The cost of not moving",
+    description: "Without felt consequence, a book is an anecdote. With it, the book becomes an argument the reader makes to themselves about why they have to act."
+  },
+];
+---
+
+<section id="method" class="py-16 sm:py-20 px-6 fade-in">
+  <div class="max-w-5xl mx-auto">
+    <div class="mb-10 sm:mb-14">
+      <p class="eyebrow mb-3">The Method</p>
+      <h2 class="font-heading text-3xl sm:text-4xl leading-tight">
+        The Four Narrative Engines<sup class="text-[0.4em] align-super opacity-50">&trade;</sup>
+      </h2>
+      <p class="mt-4 text-navy-soft leading-relaxed max-w-3xl">
+        Every nonfiction book that meaningfully changes a reader runs on the same four engines.
+        When all four fire, the book transforms. When one is missing, readers walk away unchanged
+        and stop recommending it.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-x-12 gap-y-10">
+      {engines.map((engine) => (
+        <div class="border-t border-rule-strong pt-5">
+          <p class="text-xs tracking-[0.22em] uppercase font-medium text-gold mb-2">
+            {engine.number} &mdash; {engine.name}
+          </p>
+          <h3 class="font-heading text-xl sm:text-2xl mb-3">{engine.label}</h3>
+          <p class="text-navy-soft leading-relaxed">{engine.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

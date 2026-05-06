@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Straw Dogs LLC — A boutique ghostwriting and authority architecture firm for hybrid publishers. Story is a technology, not a talent.",
+  ogImage = "/images/og-image.jpg"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Straw Dogs LLC" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strawdogsdev.com" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      function revealOnScroll() {
+        const els = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+        );
+        els.forEach((el) => observer.observe(el));
+      }
+
+      window.addEventListener('load', revealOnScroll);
+      let scrolled = false;
+      window.addEventListener('scroll', () => {
+        if (!scrolled) { scrolled = true; revealOnScroll(); }
+      }, { once: true });
+    </script>
+  </body>
+</html>

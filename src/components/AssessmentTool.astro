@@ -1,0 +1,46 @@
+---
+const styles = [
+  { name: "The Aggregator", desc: "Collector of others' wisdom." },
+  { name: "The Apothegist", desc: "Anchors modern practice to classical wisdom." },
+  { name: "The Author", desc: "Surfaces best-practices from lived experience." },
+  { name: "The Academic", desc: "Builds the case from data and footnotes." },
+  { name: "The Actor", desc: "Reports from the trenches of doing the work." },
+];
+---
+
+<section class="py-16 sm:py-20 px-6 fade-in">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-5 gap-10 lg:gap-14 items-start">
+      <div class="md:col-span-2">
+        <p class="eyebrow mb-3">A Tool for Your Authors &middot; Free</p>
+        <h2 class="font-heading text-3xl sm:text-4xl leading-tight mb-4">The Thought Leader Compass</h2>
+        <p class="text-navy-soft leading-relaxed mb-6">
+          Twenty questions. Five archetypes. The Compass identifies an author's Primary and
+          Secondary thought-leadership styles&mdash;and the kind of book they're built to write.
+          For publishers, it's a low-friction way to help qualify a prospective author and frame
+          the conversation before signing.
+        </p>
+        <a
+          href="https://platteclark.com/assessment"
+          target="_blank"
+          rel="noopener"
+          class="inline-block text-xs tracking-[0.22em] uppercase font-medium text-gold border-b border-gold pb-1 hover:text-navy hover:border-navy transition-colors"
+        >
+          platteclark.com / assessment &rarr;
+        </a>
+      </div>
+
+      <div class="md:col-span-3 bg-navy text-cream p-6 sm:p-8">
+        <p class="text-xs tracking-[0.22em] uppercase text-gold-soft mb-5">The Five Styles</p>
+        <ul class="space-y-3">
+          {styles.map((s) => (
+            <li class="flex flex-col sm:flex-row sm:gap-3 border-b border-cream/15 pb-3 last:border-b-0 last:pb-0">
+              <span class="font-heading text-lg text-cream sm:w-44 flex-shrink-0">{s.name}</span>
+              <span class="text-sm text-cream/70 leading-relaxed">{s.desc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

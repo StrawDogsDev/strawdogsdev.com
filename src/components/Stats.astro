@@ -1,0 +1,24 @@
+---
+const stats = [
+  { figure: "~30", label: "Books Ghostwritten" },
+  { figure: "250K+", label: "Trade Copies Sold (S&S)" },
+  { figure: "92%", label: "Critics — Lionsgate Feature, 2024" },
+  { figure: "25 yrs", label: "Behavioral Curriculum Design" },
+  { figure: "4", label: "Continents of Author Work" },
+];
+---
+
+<section class="border-y border-rule-strong py-10 sm:py-12 px-6 fade-in">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-rule">
+      {stats.map((stat, i) => (
+        <div class={`text-center px-4 py-4 sm:py-2 ${i === stats.length - 1 && stats.length % 2 !== 0 ? 'col-span-2 sm:col-span-1' : ''}`}>
+          <p class="font-heading text-3xl sm:text-4xl text-navy mb-1">{stat.figure}</p>
+          <p class="text-[0.65rem] sm:text-[0.7rem] tracking-[0.15em] uppercase text-navy-muted leading-tight">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
