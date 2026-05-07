@@ -1,36 +1,70 @@
 ---
-const stats = [
-  { figure: "~30", label: "Books Ghostwritten" },
+// Bento layout: featured stats get larger cells, supporting stats are tighter
+const featured = [
+  { figure: "~30", label: "Books Ghostwritten", note: "Executives, founders, category-defining experts" },
+  { figure: "92%", label: "Critics — Lionsgate Feature, 2024", note: "The Best Christmas Pageant Ever" },
+];
+
+const supporting = [
   { figure: "250K+", label: "Trade Copies Sold (S&S)" },
-  { figure: "92%", label: "Critics — Lionsgate, 2024" },
   { figure: "25", label: "Yrs Behavioral Curriculum" },
   { figure: "4", label: "Continents of Author Work" },
 ];
 ---
 
-<section class="border-y border-rule-strong py-12 sm:py-14 px-6 fade-in relative overflow-hidden">
-  <!-- Subtle gradient backdrop -->
+<section class="border-y border-rule-strong py-14 sm:py-16 px-6 fade-in relative overflow-hidden">
   <div class="absolute inset-0 -z-10 pointer-events-none"
-    style="background: linear-gradient(180deg, rgba(184, 133, 74, 0.04) 0%, transparent 50%, rgba(184, 133, 74, 0.04) 100%);">
+    style="background: linear-gradient(180deg, rgba(184, 133, 74, 0.05) 0%, transparent 50%, rgba(184, 133, 74, 0.05) 100%);">
   </div>
 
   <div class="max-w-6xl mx-auto">
-    <div class="flex items-center gap-3 mb-8">
+    <div class="flex items-center gap-3 mb-10">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
       <span class="mono-label">/ Track Record</span>
       <span class="copper-rule flex-1 opacity-30"></span>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-6">
-      {stats.map((stat) => (
-        <div class="text-left border-l border-rule-strong pl-5">
-          <p class="display text-4xl sm:text-5xl mb-2 text-bone leading-none tracking-tight" style="font-weight: 400;">
-            {stat.figure}
+    <!-- Bento grid: 2 featured + 3 supporting -->
+    <div class="grid grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4">
+      <!-- Featured cell 1 -->
+      <div class="col-span-2 lg:col-span-5 surface rounded-sm p-7 sm:p-9 flex flex-col justify-between gap-6 min-h-[180px]">
+        <p class="display text-7xl sm:text-8xl leading-none tracking-tight text-bone" style="font-weight: 400;">
+          {featured[0].figure}
+        </p>
+        <div>
+          <p class="font-mono text-[0.7rem] tracking-[0.14em] uppercase text-copper mb-1.5">
+            {featured[0].label}
           </p>
-          <p class="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-bone-mute leading-snug">
-            {stat.label}
-          </p>
+          <p class="text-sm text-bone-mute leading-snug">{featured[0].note}</p>
         </div>
-      ))}
+      </div>
+
+      <!-- Featured cell 2 -->
+      <div class="col-span-2 lg:col-span-4 surface rounded-sm p-7 sm:p-9 flex flex-col justify-between gap-6 min-h-[180px]">
+        <p class="display text-7xl sm:text-8xl leading-none tracking-tight text-bone" style="font-weight: 400;">
+          {featured[1].figure}
+        </p>
+        <div>
+          <p class="font-mono text-[0.7rem] tracking-[0.14em] uppercase text-copper mb-1.5">
+            {featured[1].label}
+          </p>
+          <p class="text-sm text-bone-mute leading-snug">{featured[1].note}</p>
+        </div>
+      </div>
+
+      <!-- Supporting column (3 stacked cells) -->
+      <div class="col-span-2 lg:col-span-3 grid grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
+        {supporting.map((s) => (
+          <div class="surface rounded-sm p-4 sm:p-5 flex flex-col justify-between gap-2">
+            <p class="display text-3xl sm:text-4xl leading-none tracking-tight text-bone" style="font-weight: 400;">
+              {s.figure}
+            </p>
+            <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase text-bone-mute leading-tight">
+              {s.label}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>

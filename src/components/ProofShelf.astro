@@ -1,4 +1,19 @@
 ---
+const featured = [
+  {
+    title: "The Best Christmas Pageant Ever",
+    detail: "Lionsgate, 2024",
+    credit: "Credited screenwriter",
+    note: "92% Critics / 97% Audiences. Top-40 box office. Studio film as deliverable."
+  },
+  {
+    title: "The Bad Unicorn Trilogy",
+    detail: "Aladdin / Simon & Schuster",
+    credit: "250K+ trade copies sold",
+    note: "Big Five fiction, three-book deal. Demonstrates load-bearing series architecture."
+  },
+];
+
 const books = [
   { title: "The Leader's Guide to Unconscious Bias", detail: "Fuller, Murphy, Anne Chow (CEO, AT&T Business)", publisher: "FranklinCovey" },
   { title: "Master Mentors, Vols. 1 & 2", detail: "Scott Jeffrey Miller", publisher: "FranklinCovey" },
@@ -6,8 +21,6 @@ const books = [
   { title: "Leading Loyalty", detail: "Rogers, Rinne, Moon", publisher: "FranklinCovey" },
   { title: "The Mind Strength Playbook", detail: "Luke Falk", publisher: "NFL QB & Mental-Strength Coach" },
   { title: "Deliver: Why Some Leaders Get Results & Most Don't", detail: "Hill, Jones, Corbridge", publisher: "" },
-  { title: "The Bad Unicorn Trilogy", detail: "Aladdin / Simon & Schuster", publisher: "250K+ copies" },
-  { title: "The Best Christmas Pageant Ever", detail: "Lionsgate, 2024", publisher: "Credited screenwriter" },
 ];
 
 const forthcoming = "Schwedelson · Stacy · Client Giant · Fossler · Morris";
@@ -22,6 +35,28 @@ const forthcoming = "Schwedelson · Stacy · Client Giant · Fossler · Morris";
       </h2>
     </div>
 
+    <!-- Featured cells (bento) -->
+    <div class="grid md:grid-cols-2 gap-4 sm:gap-5 mb-5 sm:mb-6">
+      {featured.map((b) => (
+        <div class="surface-glow rounded-sm p-7 sm:p-8 flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
+            <span class="mono-label">/ Featured</span>
+            <span class="copper-rule flex-1 opacity-30"></span>
+          </div>
+          <div>
+            <h3 class="display text-2xl sm:text-3xl text-bone leading-tight mb-2" style="font-weight: 500;">{b.title}</h3>
+            <p class="font-display italic text-bone-soft" style="font-variation-settings: 'opsz' 14;">{b.detail}</p>
+          </div>
+          <div class="mt-auto">
+            <p class="font-mono text-[0.65rem] tracking-[0.14em] uppercase text-copper mb-2">{b.credit}</p>
+            <p class="text-sm text-bone-soft leading-relaxed">{b.note}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Supporting grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-9">
       {books.map((b, i) => (
         <div class="border-t border-rule pt-4">

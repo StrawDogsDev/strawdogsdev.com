@@ -4,25 +4,29 @@ const engines = [
     number: "01",
     name: "Conflict",
     label: "The attentional gate",
-    description: "Without a gap between what is and what should be, the reader's brain never engages. Most books open with information. The ones that land open with tension."
+    description: "Without a gap between what is and what should be, the reader's brain never engages. Most books open with information. The ones that land open with tension.",
+    diagnostic: "Where on page one does the reader feel a gap between what is and what should be?"
   },
   {
     number: "02",
     name: "Character",
     label: "A before-state to inhabit",
-    description: "Not biography. The reader must see themselves in the protagonist's position before transformation—or they observe the book instead of entering it."
+    description: "Not biography. The reader must see themselves in the protagonist's position before transformation—or they observe the book instead of entering it.",
+    diagnostic: "Could the reader inhabit your protagonist's before-state — or are they only watching from outside?"
   },
   {
     number: "03",
     name: "Change",
     label: "The identity shift",
-    description: "Not simply new information, but a new answer to who am I. The books that change people make the old version of the reader impossible to return to."
+    description: "Not simply new information, but a new answer to who am I. The books that change people make the old version of the reader impossible to return to.",
+    diagnostic: "After reading this, what does the reader believe about themselves that they didn't before?"
   },
   {
     number: "04",
     name: "Stakes",
     label: "The cost of not moving",
-    description: "Without felt consequence, a book is an anecdote. With it, the book becomes an argument the reader makes to themselves about why they have to act."
+    description: "Without felt consequence, a book is an anecdote. With it, the book becomes an argument the reader makes to themselves about why they have to act.",
+    diagnostic: "What does the reader lose by not changing? Is that loss felt, or only stated?"
   },
 ];
 ---
@@ -39,11 +43,12 @@ const engines = [
         When all four fire, the book transforms. When one is missing, readers walk away unchanged
         and stop recommending it.
       </p>
+      <p class="mono-label mt-4 hidden sm:block">/ Hover any engine to reveal its diagnostic</p>
     </div>
 
     <div class="grid sm:grid-cols-2 gap-5 lg:gap-6">
       {engines.map((engine) => (
-        <div class="surface rounded-sm p-7 sm:p-8 group hover:surface-glow transition-all duration-500">
+        <div class="engine-card surface rounded-sm p-7 sm:p-8 group hover:surface-glow transition-all duration-500 cursor-default" tabindex="0">
           <div class="flex items-baseline gap-3 mb-4">
             <span class="font-mono text-xs tracking-[0.18em] text-copper">{engine.number}</span>
             <span class="copper-rule flex-1 opacity-30 group-hover:opacity-100 transition-opacity duration-500"></span>
@@ -53,6 +58,18 @@ const engines = [
             {engine.label}
           </h3>
           <p class="text-bone-soft leading-relaxed text-[0.95rem]">{engine.description}</p>
+
+          <!-- Hover-revealed diagnostic -->
+          <div class="reveal-on-hover">
+            <div class="border-l-2 border-copper pl-4 py-1">
+              <p class="font-mono text-[0.65rem] tracking-[0.16em] uppercase reveal-label mb-2">
+                / Diagnostic Question
+              </p>
+              <p class="font-display italic text-bone leading-snug text-[1.05rem]" style="font-variation-settings: 'opsz' 144;">
+                {engine.diagnostic}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
     </div>
