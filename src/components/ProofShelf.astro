@@ -1,72 +1,46 @@
 ---
 const books = [
-  {
-    title: "The Leader's Guide to Unconscious Bias",
-    detail: "Fuller, Murphy, Anne Chow (CEO, AT&T Business)",
-    publisher: "FranklinCovey",
-  },
-  {
-    title: "Master Mentors, Vols. 1 & 2",
-    detail: "Scott Jeffrey Miller",
-    publisher: "FranklinCovey",
-  },
-  {
-    title: "Get Better",
-    detail: "Todd Davis, CPO, FranklinCovey",
-    publisher: "FranklinCovey",
-  },
-  {
-    title: "Leading Loyalty",
-    detail: "Rogers, Rinne, Moon",
-    publisher: "FranklinCovey",
-  },
-  {
-    title: "The Mind Strength Playbook",
-    detail: "Luke Falk",
-    publisher: "NFL QB & Mental-Strength Coach",
-  },
-  {
-    title: "Deliver: Why Some Leaders Get Results & Most Don't",
-    detail: "Hill, Jones, Corbridge",
-    publisher: "",
-  },
-  {
-    title: "The Bad Unicorn Trilogy",
-    detail: "Aladdin / Simon & Schuster",
-    publisher: "250K+ copies",
-  },
-  {
-    title: "The Best Christmas Pageant Ever",
-    detail: "Lionsgate, 2024",
-    publisher: "Credited screenwriter",
-  },
+  { title: "The Leader's Guide to Unconscious Bias", detail: "Fuller, Murphy, Anne Chow (CEO, AT&T Business)", publisher: "FranklinCovey" },
+  { title: "Master Mentors, Vols. 1 & 2", detail: "Scott Jeffrey Miller", publisher: "FranklinCovey" },
+  { title: "Get Better", detail: "Todd Davis, CPO, FranklinCovey", publisher: "FranklinCovey" },
+  { title: "Leading Loyalty", detail: "Rogers, Rinne, Moon", publisher: "FranklinCovey" },
+  { title: "The Mind Strength Playbook", detail: "Luke Falk", publisher: "NFL QB & Mental-Strength Coach" },
+  { title: "Deliver: Why Some Leaders Get Results & Most Don't", detail: "Hill, Jones, Corbridge", publisher: "" },
+  { title: "The Bad Unicorn Trilogy", detail: "Aladdin / Simon & Schuster", publisher: "250K+ copies" },
+  { title: "The Best Christmas Pageant Ever", detail: "Lionsgate, 2024", publisher: "Credited screenwriter" },
 ];
 
 const forthcoming = "Schwedelson · Stacy · Client Giant · Fossler · Morris";
 ---
 
-<section id="work" class="section-rule py-16 sm:py-20 px-6 fade-in">
-  <div class="max-w-5xl mx-auto">
-    <div class="mb-10 sm:mb-12">
-      <p class="eyebrow mb-3">Selected Proof Shelf</p>
-      <h2 class="font-heading text-3xl sm:text-4xl leading-tight">A Sample of the Work</h2>
+<section id="work" class="border-t border-rule py-20 sm:py-28 px-6 fade-in">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-14 sm:mb-16">
+      <p class="eyebrow mb-3">/ Selected Proof Shelf</p>
+      <h2 class="display text-4xl sm:text-5xl md:text-6xl leading-[1.05]" style="font-weight: 500;">
+        A sample of <span class="display-italic" style="font-weight: 500;">the work</span>.
+      </h2>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-7">
-      {books.map((b) => (
-        <div class="border-t border-rule pt-3">
-          <h3 class="font-heading text-lg leading-snug mb-1">{b.title}</h3>
-          <p class="text-sm text-navy-soft italic leading-snug">{b.detail}</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-9">
+      {books.map((b, i) => (
+        <div class="border-t border-rule pt-4">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="font-mono text-xs text-bone-mute tracking-wider">{String(i + 1).padStart(2, '0')}</span>
+            <span class="copper-rule flex-1 opacity-30"></span>
+          </div>
+          <h3 class="display text-lg leading-snug mb-1.5 text-bone" style="font-weight: 500;">{b.title}</h3>
+          <p class="text-sm text-bone-soft italic leading-snug" style="font-family: var(--font-display); font-variation-settings: 'opsz' 14;">{b.detail}</p>
           {b.publisher && (
-            <p class="text-xs tracking-[0.1em] uppercase text-navy-muted mt-1">{b.publisher}</p>
+            <p class="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-bone-mute mt-2">{b.publisher}</p>
           )}
         </div>
       ))}
     </div>
 
-    <div class="mt-10 pt-6 border-t border-rule-strong">
-      <p class="text-xs tracking-[0.18em] uppercase text-gold mb-2">Forthcoming, 2026</p>
-      <p class="font-heading italic text-lg text-navy-soft">{forthcoming}</p>
+    <div class="mt-14 pt-7 border-t border-rule-strong">
+      <p class="eyebrow mb-3">/ Forthcoming, 2026</p>
+      <p class="display italic text-2xl text-bone-soft" style="font-weight: 400; font-variation-settings: 'opsz' 144;">{forthcoming}</p>
     </div>
   </div>
 </section>

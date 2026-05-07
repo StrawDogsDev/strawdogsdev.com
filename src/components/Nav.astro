@@ -1,36 +1,45 @@
 ---
 ---
 
-<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-cream/0">
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="text-xs tracking-[0.22em] uppercase font-medium text-navy hover:text-gold transition-colors">
-      Straw Dogs <span class="text-navy-muted">LLC</span>
+    <a href="/" class="flex items-center gap-2.5 group">
+      <span class="text-xs tracking-[0.18em] uppercase font-medium text-bone group-hover:text-copper transition-colors" style="font-family: var(--font-sans)">
+        Straw Dogs <span class="text-bone-mute">Dev</span>
+      </span>
     </a>
 
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-7">
       <a
         href="#method"
-        class="hidden sm:inline-block text-xs tracking-[0.18em] uppercase text-navy-soft hover:text-navy transition-colors"
+        class="hidden sm:inline-block text-xs tracking-[0.14em] uppercase text-bone-soft hover:text-copper transition-colors"
+        style="font-family: var(--font-mono)"
       >
         Method
       </a>
       <a
         href="#team"
-        class="hidden sm:inline-block text-xs tracking-[0.18em] uppercase text-navy-soft hover:text-navy transition-colors"
+        class="hidden sm:inline-block text-xs tracking-[0.14em] uppercase text-bone-soft hover:text-copper transition-colors"
+        style="font-family: var(--font-mono)"
       >
         Team
       </a>
       <a
         href="#work"
-        class="hidden sm:inline-block text-xs tracking-[0.18em] uppercase text-navy-soft hover:text-navy transition-colors"
+        class="hidden sm:inline-block text-xs tracking-[0.14em] uppercase text-bone-soft hover:text-copper transition-colors"
+        style="font-family: var(--font-mono)"
       >
         Work
       </a>
       <a
         href="#contact"
-        class="text-xs tracking-[0.18em] uppercase text-gold hover:text-navy transition-colors"
+        class="text-xs tracking-[0.14em] uppercase text-copper hover:text-copper-bright transition-colors flex items-center gap-1.5"
+        style="font-family: var(--font-mono)"
       >
         Contact
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="opacity-70">
+          <path d="M3 3L9 9M9 3v6H3" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+        </svg>
       </a>
     </div>
   </div>
@@ -40,10 +49,14 @@
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      nav?.classList.add('bg-cream/95', 'backdrop-blur-sm');
-      nav?.style.setProperty('border-bottom', '1px solid rgba(26, 35, 50, 0.12)');
+      nav?.style.setProperty('background', 'rgba(10, 11, 13, 0.78)');
+      nav?.style.setProperty('backdrop-filter', 'blur(12px) saturate(1.4)');
+      nav?.style.setProperty('-webkit-backdrop-filter', 'blur(12px) saturate(1.4)');
+      nav?.style.setProperty('border-bottom', '1px solid rgba(237, 237, 234, 0.08)');
     } else {
-      nav?.classList.remove('bg-cream/95', 'backdrop-blur-sm');
+      nav?.style.setProperty('background', 'transparent');
+      nav?.style.setProperty('backdrop-filter', 'none');
+      nav?.style.setProperty('-webkit-backdrop-filter', 'none');
       nav?.style.setProperty('border-bottom', 'none');
     }
   });

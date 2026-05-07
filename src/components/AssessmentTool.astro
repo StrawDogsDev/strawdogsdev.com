@@ -8,13 +8,15 @@ const styles = [
 ];
 ---
 
-<section class="py-16 sm:py-20 px-6 fade-in">
-  <div class="max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-5 gap-10 lg:gap-14 items-start">
-      <div class="md:col-span-2">
-        <p class="eyebrow mb-3">A Tool for Your Authors &middot; Free</p>
-        <h2 class="font-heading text-3xl sm:text-4xl leading-tight mb-4">The Thought Leader Compass</h2>
-        <p class="text-navy-soft leading-relaxed mb-6">
+<section class="border-t border-rule py-20 sm:py-28 px-6 fade-in">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+      <div class="lg:col-span-2">
+        <p class="eyebrow mb-3">/ A Tool for Your Authors / Free</p>
+        <h2 class="display text-4xl sm:text-5xl leading-[1.05] mb-6" style="font-weight: 500;">
+          The <span class="display-italic" style="font-weight: 500;">Thought Leader Compass</span>.
+        </h2>
+        <p class="text-bone-soft leading-relaxed mb-8 text-lg">
           Twenty questions. Five archetypes. The Compass identifies an author's Primary and
           Secondary thought-leadership styles&mdash;and the kind of book they're built to write.
           For publishers, it's a low-friction way to help qualify a prospective author and frame
@@ -24,19 +26,27 @@ const styles = [
           href="https://platteclark.com/assessment"
           target="_blank"
           rel="noopener"
-          class="inline-block text-xs tracking-[0.22em] uppercase font-medium text-gold border-b border-gold pb-1 hover:text-navy hover:border-navy transition-colors"
+          class="inline-flex items-center gap-2 font-mono text-xs tracking-[0.14em] uppercase text-copper hover:text-copper-bright transition-colors border-b border-copper/40 hover:border-copper-bright pb-1"
         >
-          platteclark.com / assessment &rarr;
+          platteclark.com / assessment
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+            <path d="M3 3L9 9M9 3v6H3" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+          </svg>
         </a>
       </div>
 
-      <div class="md:col-span-3 bg-navy text-cream p-6 sm:p-8">
-        <p class="text-xs tracking-[0.22em] uppercase text-gold-soft mb-5">The Five Styles</p>
-        <ul class="space-y-3">
-          {styles.map((s) => (
-            <li class="flex flex-col sm:flex-row sm:gap-3 border-b border-cream/15 pb-3 last:border-b-0 last:pb-0">
-              <span class="font-heading text-lg text-cream sm:w-44 flex-shrink-0">{s.name}</span>
-              <span class="text-sm text-cream/70 leading-relaxed">{s.desc}</span>
+      <div class="lg:col-span-3 surface-glow rounded-sm p-7 sm:p-9">
+        <div class="flex items-center gap-3 mb-7">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
+          <p class="mono-label">/ The Five Styles</p>
+          <span class="copper-rule flex-1 opacity-30"></span>
+        </div>
+        <ul class="space-y-4">
+          {styles.map((s, i) => (
+            <li class="grid grid-cols-[auto_1fr] sm:grid-cols-[auto_12rem_1fr] gap-x-4 gap-y-1 items-baseline border-b border-rule pb-4 last:border-b-0 last:pb-0">
+              <span class="font-mono text-xs text-copper">{String(i + 1).padStart(2, '0')}</span>
+              <span class="display text-lg sm:text-xl text-bone col-span-1" style="font-weight: 500;">{s.name}</span>
+              <span class="text-sm text-bone-soft leading-relaxed col-span-2 sm:col-span-1">{s.desc}</span>
             </li>
           ))}
         </ul>

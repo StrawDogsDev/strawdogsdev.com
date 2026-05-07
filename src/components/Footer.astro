@@ -2,12 +2,15 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-rule-strong py-8 px-6">
-  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-    <p class="text-xs tracking-[0.18em] uppercase text-navy-muted">
-      Straw Dogs LLC &middot; {year}
-    </p>
-    <p class="text-xs italic text-navy-muted">
+<footer class="border-t border-rule-strong py-10 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
+      <p class="font-mono text-xs tracking-[0.18em] uppercase text-bone-mute">
+        Straw Dogs LLC / {year}
+      </p>
+    </div>
+    <p class="display italic text-sm text-bone-soft" style="font-variation-settings: 'opsz' 14;">
       Story is a technology. Not a talent.
     </p>
   </div>
