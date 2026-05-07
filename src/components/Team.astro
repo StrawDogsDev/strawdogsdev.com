@@ -4,7 +4,6 @@ const tiers = [
     tier: "T01",
     role: "Authority Architect",
     name: "Platte F. Clark",
-    rate: "275",
     bio: "Lead writer and book architect for category-defining titles. WGA member. Big Five novelist. Lionsgate-credited screenwriter. Twenty-five years building behavior-change curriculum for FranklinCovey, VitalSmarts, ZengerFolkman, and global organizations across four continents.",
     accent: true,
   },
@@ -12,7 +11,6 @@ const tiers = [
     tier: "T02",
     role: "Production Writer",
     name: "Kennidy Clark",
-    rate: "125",
     bio: "Production drafting under Platte's direct supervision. A younger voice for younger audiences, sharp on contemporary register, and the right fit for authors with leaner budgets who still need the Straw Dogs architectural standard on the manuscript.",
     accent: false,
   },
@@ -43,15 +41,9 @@ const tiers = [
             <span class="copper-rule flex-1 opacity-40"></span>
             <span class="font-mono text-xs tracking-[0.14em] uppercase text-bone-mute">{t.role}</span>
           </div>
-          <h3 class="display text-3xl sm:text-4xl mb-2 text-bone leading-tight" style="font-weight: 500;">
+          <h3 class="display text-3xl sm:text-4xl mb-7 text-bone leading-tight" style="font-weight: 500;">
             {t.name}
           </h3>
-          <div class="flex items-baseline gap-1.5 mb-7">
-            <span class="display text-5xl sm:text-6xl tracking-tight" style="font-weight: 400; color: var(--color-copper-bright);">
-              ${t.rate}
-            </span>
-            <span class="font-mono text-sm text-bone-mute">/hour</span>
-          </div>
           <p class="text-bone-soft leading-relaxed text-[0.95rem]">{t.bio}</p>
         </div>
       ))}
