@@ -109,6 +109,8 @@ const engines = [
         display: flex; align-items: center; justify-content: space-between;
         padding: 1.1rem 0;
       }
+      .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+      .brand-mark { height: 30px; width: auto; display: block; }
       .wordmark {
         font-size: 0.74rem; letter-spacing: 0.28em; text-transform: uppercase;
         font-weight: 600; color: var(--ink);
@@ -264,7 +266,10 @@ const engines = [
 
     <header class="topbar">
       <div class="wrap row">
-        <span class="wordmark">Straw Dogs <span class="wm-sub">Development</span></span>
+        <a class="brand" href="/preview/" aria-label="Straw Dogs Development">
+          <img class="brand-mark" src="/images/dog-mark.png" alt="" width="363" height="238" />
+          <span class="wordmark">Straw Dogs <span class="wm-sub">Development</span></span>
+        </a>
         <span class="right">A Working Note for Prospective Authors</span>
       </div>
     </header>
