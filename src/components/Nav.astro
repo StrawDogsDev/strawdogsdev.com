@@ -23,7 +23,11 @@ const {
       <span class="wordmark">Straw Dogs <span class="wm-sub">Development</span></span>
     </a>
 
-    <div class="nav-links">
+    <button class="nav-toggle" aria-label="Menu" aria-controls="navmenu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <div class="nav-menu" id="navmenu">
       {links.map((l) => <a class="nav-link" href={l.href}>{l.label}</a>)}
       {cross && <a class="nav-link nav-cross" href={cross.href}>{cross.label} →</a>}
       <a class="nav-cta" href={cta.href}>{cta.label}</a>
@@ -50,7 +54,8 @@ const {
     font-weight: 600; color: var(--color-ink);
   }
   .wordmark .wm-sub { color: var(--color-ink-mute); font-weight: 500; }
-  .nav-links { display: flex; align-items: center; gap: 1.6rem; }
+
+  .nav-menu { display: flex; align-items: center; gap: 1.6rem; }
   .nav-link {
     font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--color-ink-soft); text-decoration: none; transition: color 0.3s ease;
@@ -60,11 +65,57 @@ const {
   .nav-cta {
     font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
     color: #fff; background: var(--color-blue); padding: 0.55rem 1rem; border-radius: 2px;
-    text-decoration: none; transition: background 0.3s ease;
+    text-decoration: none; transition: background 0.3s ease; white-space: nowrap;
   }
   .nav-cta:hover { background: var(--color-blue-deep); }
+
+  /* Hamburger (mobile only) */
+  .nav-toggle {
+    display: none; background: none; border: 0; padding: 0.4rem; cursor: pointer; margin: -0.4rem;
+  }
+  .nav-toggle .bar {
+    display: block; width: 22px; height: 2px; background: var(--color-ink);
+    margin: 5px 0; transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 860px) {
-    .nav-link { display: none; }
-    .nav-cross { display: none; }
+    .nav-toggle { display: block; }
+    .nav-menu {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: rgba(243, 239, 229, 0.98);
+      -webkit-backdrop-filter: blur(12px) saturate(1.2); backdrop-filter: blur(12px) saturate(1.2);
+      border-bottom: 1px solid var(--color-rule);
+      padding: 0.25rem 1.5rem 1.25rem;
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu .nav-link {
+      display: block; font-size: 0.8rem; letter-spacing: 0.14em; padding: 0.95rem 0;
+      border-top: 1px solid var(--color-rule); color: var(--color-ink);
+    }
+    .nav-menu .nav-cross { color: var(--color-blue); }
+    .nav-menu .nav-cta {
+      display: block; text-align: center; font-size: 0.74rem; padding: 0.85rem; margin-top: 1rem;
+    }
   }
 </style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('navmenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
