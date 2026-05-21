@@ -1,9 +1,12 @@
 ---
-interface Props { cite?: string; }
-const { cite } = Astro.props;
+interface Props { cite?: string; image?: string; }
+const { cite, image } = Astro.props;
 ---
 
-<section class="section fade-in">
+<section
+  class={image ? "quote-band fade-in" : "section fade-in"}
+  style={image ? `--bg: url('${image}')` : undefined}
+>
   <div class="wrap quote-wrap">
     <blockquote class="quote display">
       <slot />
@@ -16,4 +19,17 @@ const { cite } = Astro.props;
   .quote-wrap { max-width: 60ch; margin-left: auto; margin-right: auto; text-align: center; }
   .quote { font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1.15; margin: 0; text-wrap: balance; }
   .quote-cite { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute); margin-top: 1.75rem; }
+
+  /* Full-bleed image band variant (homepage mountain) */
+  .quote-band {
+    position: relative;
+    padding: 7rem 1.5rem;
+    background-image: linear-gradient(rgba(16, 18, 24, 0.6), rgba(16, 18, 24, 0.62)), var(--bg);
+    background-size: cover;
+    background-position: center 60%;
+  }
+  .quote-band .quote { color: #f4f0e6; }
+  .quote-band .quote :global(.display-italic) { color: #aeb9ff; }
+  .quote-band .quote-cite { color: rgba(244, 240, 230, 0.72); }
+  @media (max-width: 720px) { .quote-band { padding: 4.5rem 1.5rem; } }
 </style>
