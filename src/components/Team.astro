@@ -1,52 +1,94 @@
 ---
-const tiers = [
+const people = [
   {
-    tier: "T01",
-    role: "Authority Architect",
     name: "Platte F. Clark",
-    bio: "Lead writer and book architect for category-defining titles. WGA member. Big Five novelist. Lionsgate-credited screenwriter. Twenty-five years building behavior-change curriculum for FranklinCovey, VitalSmarts, ZengerFolkman, and global organizations across four continents.",
-    accent: true,
+    role: "Principal · Lead Writer",
+    photo: "/images/platte.png",
+    caption: "Principal · Straw Dogs Development",
+    bio: [
+      "The credited screenwriter on the 2024 Lionsgate feature <em>The Best Christmas Pageant Ever</em> (92% Critics, 97% Audiences), the novelist behind the <em>Bad Unicorn</em> trilogy at Aladdin / Simon & Schuster (250,000+ copies, distributed internationally), and the ghostwriter for over thirty nonfiction titles for executives, founders, and category-defining experts.",
+      "Before ghostwriting full-time, Platte built behavioral curriculum for FranklinCovey, VitalSmarts, and ZengerFolkman, and served as Chief Learning Officer for a B-to-B training company partnered with Tony Robbins. That instructional-design background is the engine under the architecture — he writes books that change how the reader behaves after closing the cover.",
+      "Currently authoring <em>Author Unknown: Why Some Stories Change People and Most Don't</em> and hosting the <em>Author Unknown</em> podcast. An active Hollywood WGA member; B.S. in Philosophy, M.S. in English / Instructional Technology.",
+    ],
   },
   {
-    tier: "T02",
-    role: "Production Writer",
     name: "Kennidy Clark",
-    bio: "Production drafting under Platte's direct supervision. A younger voice for younger audiences, sharp on contemporary register, and the right fit for authors with leaner budgets who still need the Straw Dogs architectural standard on the manuscript.",
-    accent: false,
+    role: "Senior Writer",
+    photo: "/images/kennidy.jpeg",
+    caption: "Senior Writer · Straw Dogs Development",
+    bio: [
+      "The second pair of expert hands on every Straw Dogs project. Her work spans content development, editorial, training design, scripting, and the production work that takes a manuscript past its first printing — workshop materials, launch copy, podcast scripts, cohort curriculum.",
+      "Recent and ongoing client work includes Tony Robbins and Dean Graziosi (Mastermind.com), Jason Stacy (<em>The Pressure Code</em>), Luke Falk (<em>The Mind Strength Playbook</em>), and others across the firm's nonfiction roster. Trained inside the same behavioral-curriculum tradition that built the shop, with a working fluency in adult-learning design alongside a sharp editorial ear. The result is structural rigor at draft speed.",
+      "On a typical engagement, Kennidy partners with Platte from architecture through delivery. B.A. in English Language and Literature, Utah State University.",
+    ],
   },
 ];
 ---
 
-<section id="team" class="border-t border-rule py-20 sm:py-28 px-6 fade-in">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-14 sm:mb-16 max-w-3xl">
-      <p class="eyebrow mb-3">/ The Team</p>
-      <h2 class="display text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-6" style="font-weight: 500;">
-        Two <span class="display-italic" style="font-weight: 500;">tiers</span>.
-      </h2>
-      <p class="text-bone-soft leading-relaxed text-lg">
-        Senior ghostwriters typically price out every author except those with the largest budgets.
-        Our structure solves that. Many projects use both tiers in combination&mdash;Platte for
-        architecture, structural editorial, voice, and specific narrative challenges; Kennidy for
-        production drafting under his direct supervision. Publishers can match the right blend to
-        each author's budget without compromising the book that ends up on your imprint.
+<section id="team" class="section fade-in">
+  <div class="wrap">
+    <div class="section-head" style="max-width:60ch;">
+      <span class="eyebrow" style="display:block; margin-bottom:1rem;">The Team</span>
+      <h2 class="h2" style="margin-bottom:1.5rem;">The team you meet on the discovery call <span class="display-italic">is the team that writes your book.</span></h2>
+      <p class="lede" style="font-size:clamp(1.05rem,1.7vw,1.3rem);">
+        No salesperson hand-off. No anonymous subcontractor in another time zone. Every Straw Dogs
+        project is run end to end by the two people below.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
-      {tiers.map((t) => (
-        <div class={`${t.accent ? 'surface-glow' : 'surface'} rounded-sm p-7 sm:p-9`}>
-          <div class="flex items-center gap-3 mb-6">
-            <span class="font-mono text-xs tracking-[0.18em] copper">{t.tier}</span>
-            <span class="copper-rule flex-1 opacity-40"></span>
-            <span class="font-mono text-xs tracking-[0.14em] uppercase text-bone-mute">{t.role}</span>
+    <div class="people">
+      {people.map((p) => (
+        <article class="person">
+          <figure class="person-photo">
+            <img src={p.photo} alt={p.name} width="800" height="800" loading="lazy" />
+            <figcaption>{p.caption}</figcaption>
+          </figure>
+          <div class="person-main">
+            <div class="person-head">
+              <div>
+                <h3 class="h3" style="font-size:clamp(1.5rem,2.4vw,2rem);">{p.name}</h3>
+                <p class="team-role">{p.role}</p>
+              </div>
+            </div>
+            <div class="team-bio">
+              {p.bio.map((para) => <p set:html={para} />)}
+            </div>
           </div>
-          <h3 class="display text-3xl sm:text-4xl mb-7 text-bone leading-tight" style="font-weight: 500;">
-            {t.name}
-          </h3>
-          <p class="text-bone-soft leading-relaxed text-[0.95rem]">{t.bio}</p>
-        </div>
+        </article>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .people { display: flex; flex-direction: column; gap: 0; }
+  .person {
+    display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; align-items: start;
+    padding: 2.75rem 0; border-top: 1px solid var(--color-rule);
+  }
+  .person:last-child { border-bottom: 1px solid var(--color-rule); }
+  .person-photo { margin: 0; }
+  .person-photo img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center;
+    border-radius: 2px; border: 1px solid var(--color-rule);
+    box-shadow: 0 20px 45px -28px rgba(26, 35, 50, 0.45);
+    filter: contrast(1.02) saturate(0.98); display: block;
+  }
+  .person-photo figcaption {
+    font-family: var(--font-body); font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+    margin-top: 0.85rem;
+  }
+  .person-head {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    padding-bottom: 1.3rem; margin-bottom: 1.3rem; border-bottom: 1px solid var(--color-rule);
+  }
+  .team-role { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-blue); margin: 0.45rem 0 0; }
+  .team-bio p { color: var(--color-ink-soft); line-height: 1.62; font-size: 0.95rem; margin: 0 0 0.9rem; }
+  .team-bio p:last-child { margin-bottom: 0; }
+  .team-bio em { font-style: italic; color: var(--color-ink); }
+  @media (max-width: 760px) {
+    .person { grid-template-columns: 1fr; gap: 1.6rem; }
+    .person-photo { max-width: 260px; }
+  }
+</style>

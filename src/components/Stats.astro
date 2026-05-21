@@ -1,70 +1,38 @@
 ---
-// Bento layout: featured stats get larger cells, supporting stats are tighter
-const featured = [
-  { figure: "~30", label: "Books Ghostwritten", note: "Executives, founders, category-defining experts" },
-  { figure: "92%", label: "Critics — Lionsgate Feature, 2024", note: "The Best Christmas Pageant Ever" },
-];
-
-const supporting = [
-  { figure: "250K+", label: "Trade Copies Sold (S&S)" },
-  { figure: "25", label: "Yrs Behavioral Curriculum" },
-  { figure: "4", label: "Continents of Author Work" },
+const stats = [
+  { figure: "30+", label: "Trade nonfiction titles", note: "Leadership, sales, sports, behavior, memoir" },
+  { figure: "250K+", label: "Copies sold (Simon & Schuster)", note: "Bad Unicorn trilogy · distributed internationally" },
+  { figure: "92%", label: "Critics — Lionsgate feature, 2024", note: "The Best Christmas Pageant Ever" },
+  { figure: "30", label: "Years of curriculum design", note: "FranklinCovey · VitalSmarts · ZengerFolkman, and others" },
 ];
 ---
 
-<section class="border-y border-rule-strong py-14 sm:py-16 px-6 fade-in relative overflow-hidden">
-  <div class="absolute inset-0 -z-10 pointer-events-none"
-    style="background: linear-gradient(180deg, rgba(184, 133, 74, 0.05) 0%, transparent 50%, rgba(184, 133, 74, 0.05) 100%);">
-  </div>
-
-  <div class="max-w-6xl mx-auto">
-    <div class="flex items-center gap-3 mb-10">
-      <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
-      <span class="mono-label">/ Track Record</span>
-      <span class="copper-rule flex-1 opacity-30"></span>
+<section id="track" class="section fade-in">
+  <div class="wrap">
+    <div style="display:flex; align-items:center; gap:0.85rem; margin-bottom:2.5rem;">
+      <span class="eyebrow">Platte's Unmatched Track Record</span>
+      <span class="rule-blue" style="flex:1; opacity:0.4;"></span>
     </div>
-
-    <!-- Bento grid: 2 featured + 3 supporting -->
-    <div class="grid grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4">
-      <!-- Featured cell 1 -->
-      <div class="col-span-2 lg:col-span-5 surface rounded-sm p-7 sm:p-9 flex flex-col justify-between gap-6 min-h-[180px]">
-        <p class="display text-7xl sm:text-8xl leading-none tracking-tight text-bone" style="font-weight: 400;">
-          {featured[0].figure}
-        </p>
-        <div>
-          <p class="font-mono text-[0.7rem] tracking-[0.14em] uppercase text-copper mb-1.5">
-            {featured[0].label}
-          </p>
-          <p class="text-sm text-bone-mute leading-snug">{featured[0].note}</p>
-        </div>
-      </div>
-
-      <!-- Featured cell 2 -->
-      <div class="col-span-2 lg:col-span-4 surface rounded-sm p-7 sm:p-9 flex flex-col justify-between gap-6 min-h-[180px]">
-        <p class="display text-7xl sm:text-8xl leading-none tracking-tight text-bone" style="font-weight: 400;">
-          {featured[1].figure}
-        </p>
-        <div>
-          <p class="font-mono text-[0.7rem] tracking-[0.14em] uppercase text-copper mb-1.5">
-            {featured[1].label}
-          </p>
-          <p class="text-sm text-bone-mute leading-snug">{featured[1].note}</p>
-        </div>
-      </div>
-
-      <!-- Supporting column (3 stacked cells) -->
-      <div class="col-span-2 lg:col-span-3 grid grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4">
-        {supporting.map((s) => (
-          <div class="surface rounded-sm p-4 sm:p-5 flex flex-col justify-between gap-2">
-            <p class="display text-3xl sm:text-4xl leading-none tracking-tight text-bone" style="font-weight: 400;">
-              {s.figure}
-            </p>
-            <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase text-bone-mute leading-tight">
-              {s.label}
-            </p>
+    <div class="stat-grid">
+      {stats.map((s) => (
+        <div class="card stat" >
+          <p class="stat-fig display">{s.figure}</p>
+          <div>
+            <p class="stat-label">{s.label}</p>
+            <p class="stat-note">{s.note}</p>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .stat { padding: 1.9rem 1.6rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; min-height: 180px; }
+  .stat-fig { font-size: clamp(2.6rem, 4.5vw, 3.6rem); line-height: 1; color: var(--color-ink); }
+  .stat-label { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-blue); margin: 0 0 0.4rem; }
+  .stat-note { font-size: 0.82rem; color: var(--color-ink-mute); line-height: 1.4; margin: 0; }
+  @media (max-width: 860px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px) { .stat-grid { grid-template-columns: 1fr; } .stat { min-height: 0; } }
+</style>

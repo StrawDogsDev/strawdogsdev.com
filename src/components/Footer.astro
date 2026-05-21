@@ -2,16 +2,64 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-rule-strong py-10 px-6">
-  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-    <div class="flex items-center gap-3">
-      <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
-      <p class="font-mono text-xs tracking-[0.18em] uppercase text-bone-mute">
-        Straw Dogs LLC / {year}
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Straw Dogs Development">
+        <img class="brand-mark" src="/images/dog-mark.png" alt="" width="363" height="238" />
+        <span class="wordmark">Straw Dogs <span class="wm-sub">Development</span></span>
+      </a>
+      <p class="footer-tag">Behavior-change books with chapters. Not transcripts with covers.</p>
+      <p class="footer-contact">
+        <a href="mailto:platte@strawdogsdev.com">platte@strawdogsdev.com</a><br />
+        <a href="tel:8016422453">801 · 642 · 2453</a><br />
+        American Fork, Utah
       </p>
     </div>
-    <p class="display italic text-sm text-bone-soft" style="font-variation-settings: 'opsz' 14;">
-      Story is a technology. Not a talent.
-    </p>
+
+    <div class="footer-col">
+      <p class="footer-label">Across the Brand</p>
+      <ul>
+        <li><a href="https://platteclark.com" target="_blank" rel="noopener">platteclark.com</a><span>Principal's site & the Compass</span></li>
+        <li><a href="https://authorunknown.fm" target="_blank" rel="noopener">authorunknown.fm</a><span>The podcast</span></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <p class="footer-label">Platte's Representation</p>
+      <ul>
+        <li><span class="rep">Grey + Miller</span><span>Non-fiction</span></li>
+        <li><span class="rep">East West Literary</span><span>Fiction</span></li>
+        <li><span class="rep">Plain Text Talent</span><span>Film / TV</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <span>© {year} Straw Dogs Development</span>
+    <span class="footer-quote">Story is a technology. Not a talent.</span>
   </div>
 </footer>
+
+<style>
+  .footer { border-top: 1px solid var(--color-rule-strong); padding: 4rem 0 2.5rem; }
+  .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 2.5rem; }
+  .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; margin-bottom: 1.2rem; }
+  .brand-mark { height: 26px; width: auto; }
+  .wordmark { font-size: 0.7rem; letter-spacing: 0.26em; text-transform: uppercase; font-weight: 600; color: var(--color-ink); }
+  .wordmark .wm-sub { color: var(--color-ink-mute); font-weight: 500; }
+  .footer-tag { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 30; color: var(--color-ink-soft); font-size: 0.95rem; margin: 0 0 1.2rem; max-width: 34ch; }
+  .footer-contact { font-size: 0.85rem; color: var(--color-ink-mute); line-height: 1.8; margin: 0; }
+  .footer-contact a { color: var(--color-ink-soft); text-decoration: none; }
+  .footer-contact a:hover { color: var(--color-blue); }
+  .footer-label { font-family: var(--font-body); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-blue); margin: 0 0 1rem; }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; }
+  .footer-col li { margin-bottom: 1rem; display: flex; flex-direction: column; }
+  .footer-col a, .rep { color: var(--color-ink); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+  .footer-col a:hover { color: var(--color-blue); }
+  .footer-col span { font-size: 0.76rem; color: var(--color-ink-mute); margin-top: 0.15rem; }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--color-rule); }
+  .footer-bottom span { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--color-ink-mute); }
+  .footer-quote { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 30; letter-spacing: 0; }
+  @media (max-width: 760px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+</style>
