@@ -1,4 +1,30 @@
 ---
+const people = [
+  {
+    name: "Platte F. Clark",
+    role: "Principal · Lead Writer",
+    rate: "$295",
+    photo: "/images/platte.png",
+    caption: "Principal · Straw Dogs Development",
+    bio: [
+      "The credited screenwriter on the 2024 Lionsgate feature <em>The Best Christmas Pageant Ever</em> (92% Critics, 97% Audiences), the novelist behind the <em>Bad Unicorn</em> trilogy at Aladdin / Simon & Schuster (250,000+ copies, distributed internationally), and the ghostwriter for over thirty nonfiction titles for executives, founders, and category-defining experts.",
+      "Before ghostwriting full-time, Platte built behavioral curriculum for FranklinCovey, VitalSmarts, and ZengerFolkman, and served as Chief Learning Officer for a B-to-B training company partnered with Tony Robbins. That instructional-design background is the engine under the architecture — he writes books that change how the reader behaves after closing the cover.",
+      "Currently authoring <em>Author Unknown: Why Some Stories Change People and Most Don't</em> and hosting the <em>Author Unknown</em> podcast. An active Hollywood WGA member; B.S. in Philosophy, M.S. in English / Instructional Technology.",
+    ],
+  },
+  {
+    name: "Kennidy Clark",
+    role: "Senior Writer",
+    rate: "$125",
+    photo: "/images/kennidy.jpeg",
+    caption: "Senior Writer · Straw Dogs Development",
+    bio: [
+      "The second pair of expert hands on every Straw Dogs project. Her work spans content development, editorial, training design, scripting, and the production work that takes a manuscript past its first printing — workshop materials, launch copy, podcast scripts, cohort curriculum.",
+      "Recent and ongoing client work includes Tony Robbins and Dean Graziosi (Mastermind.com), Jason Stacy (<em>The Pressure Code</em>), Luke Falk (<em>The Mind Strength Playbook</em>), and others across the firm's nonfiction roster. Trained inside the same behavioral-curriculum tradition that built the shop, with a working fluency in adult-learning design alongside a sharp editorial ear. The result is structural rigor at draft speed.",
+      "On a typical engagement, Kennidy partners with Platte from architecture through delivery. B.A. in English Language and Literature, Utah State University.",
+    ],
+  },
+];
 ---
 
 <section id="team" class="section fade-in">
@@ -12,65 +38,62 @@
       </p>
     </div>
 
-    <div class="team-grid">
-      <article class="card team-card">
-        <div class="team-head">
-          <div>
-            <h3 class="h3" style="font-size:clamp(1.5rem,2.4vw,2rem);">Platte F. Clark</h3>
-            <p class="team-role">Principal · Lead Writer</p>
+    <div class="people">
+      {people.map((p) => (
+        <article class="person">
+          <figure class="person-photo">
+            <img src={p.photo} alt={p.name} width="800" height="800" loading="lazy" />
+            <figcaption>{p.caption}</figcaption>
+          </figure>
+          <div class="person-main">
+            <div class="person-head">
+              <div>
+                <h3 class="h3" style="font-size:clamp(1.5rem,2.4vw,2rem);">{p.name}</h3>
+                <p class="team-role">{p.role}</p>
+              </div>
+              <span class="team-rate">{p.rate}<span>/hr</span></span>
+            </div>
+            <div class="team-bio">
+              {p.bio.map((para) => <p set:html={para} />)}
+            </div>
           </div>
-          <span class="team-rate">$295<span>/hr</span></span>
-        </div>
-        <div class="team-bio">
-          <p>The credited screenwriter on the 2024 Lionsgate feature <em>The Best Christmas Pageant Ever</em>
-          (92% Critics, 97% Audiences), the novelist behind the <em>Bad Unicorn</em> trilogy at Aladdin /
-          Simon & Schuster (250,000+ copies, distributed internationally), and the ghostwriter for over
-          thirty nonfiction titles for executives, founders, and category-defining experts.</p>
-          <p>Before ghostwriting full-time, Platte built behavioral curriculum for FranklinCovey,
-          VitalSmarts, and ZengerFolkman, and served as Chief Learning Officer for a B-to-B training
-          company partnered with Tony Robbins. That instructional-design background is the engine under
-          the architecture — he writes books that change how the reader behaves after closing the cover.</p>
-          <p>Currently authoring <em>Author Unknown: Why Some Stories Change People and Most Don't</em> and
-          hosting the <em>Author Unknown</em> podcast. An active Hollywood WGA member; B.S. in Philosophy,
-          M.S. in English / Instructional Technology.</p>
-        </div>
-      </article>
-
-      <article class="card team-card">
-        <div class="team-head">
-          <div>
-            <h3 class="h3" style="font-size:clamp(1.5rem,2.4vw,2rem);">Kennidy Clark</h3>
-            <p class="team-role">Senior Writer</p>
-          </div>
-          <span class="team-rate">$125<span>/hr</span></span>
-        </div>
-        <div class="team-bio">
-          <p>The second pair of expert hands on every Straw Dogs project. Her work spans content
-          development, editorial, training design, scripting, and the production work that takes a
-          manuscript past its first printing — workshop materials, launch copy, podcast scripts, cohort
-          curriculum.</p>
-          <p>Recent and ongoing client work includes Tony Robbins and Dean Graziosi (Mastermind.com),
-          Jason Stacy (<em>The Pressure Code</em>), Luke Falk (<em>The Mind Strength Playbook</em>), and
-          others across the firm's nonfiction roster. Trained inside the same behavioral-curriculum
-          tradition that built the shop, with a working fluency in adult-learning design alongside a
-          sharp editorial ear. The result is structural rigor at draft speed.</p>
-          <p>On a typical engagement, Kennidy partners with Platte from architecture through delivery.
-          B.A. in English Language and Literature, Utah State University.</p>
-        </div>
-      </article>
+        </article>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .team-card { padding: 2.2rem; }
-  .team-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-bottom: 1.4rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--color-rule); }
+  .people { display: flex; flex-direction: column; gap: 0; }
+  .person {
+    display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; align-items: start;
+    padding: 2.75rem 0; border-top: 1px solid var(--color-rule);
+  }
+  .person:last-child { border-bottom: 1px solid var(--color-rule); }
+  .person-photo { margin: 0; }
+  .person-photo img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center;
+    border-radius: 2px; border: 1px solid var(--color-rule);
+    box-shadow: 0 20px 45px -28px rgba(26, 35, 50, 0.45);
+    filter: contrast(1.02) saturate(0.98); display: block;
+  }
+  .person-photo figcaption {
+    font-family: var(--font-body); font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+    margin-top: 0.85rem;
+  }
+  .person-head {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    padding-bottom: 1.3rem; margin-bottom: 1.3rem; border-bottom: 1px solid var(--color-rule);
+  }
   .team-role { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-blue); margin: 0.45rem 0 0; }
-  .team-rate { font-family: var(--font-display); font-size: 1.6rem; color: var(--color-ink); white-space: nowrap; font-variation-settings: "opsz" 60; }
+  .team-rate { font-family: var(--font-display); font-size: 1.7rem; color: var(--color-ink); white-space: nowrap; font-variation-settings: "opsz" 60; }
   .team-rate span { font-family: var(--font-body); font-size: 0.7rem; color: var(--color-ink-mute); letter-spacing: 0.08em; }
   .team-bio p { color: var(--color-ink-soft); line-height: 1.62; font-size: 0.95rem; margin: 0 0 0.9rem; }
   .team-bio p:last-child { margin-bottom: 0; }
   .team-bio em { font-style: italic; color: var(--color-ink); }
-  @media (max-width: 760px) { .team-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) {
+    .person { grid-template-columns: 1fr; gap: 1.6rem; }
+    .person-photo { max-width: 260px; }
+  }
 </style>
