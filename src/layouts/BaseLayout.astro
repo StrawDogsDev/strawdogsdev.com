@@ -5,12 +5,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
-  description = "Straw Dogs LLC — A boutique ghostwriting and authority architecture firm for hybrid publishers. Story is a technology, not a talent.",
-  ogImage = "/images/og-image.jpg"
+  description = "Straw Dogs Development — a boutique ghostwriting and book-architecture firm. We build behavior-change books that outlive most of what you've made.",
+  ogImage = "/images/og-image.jpg",
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -20,7 +22,8 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="author" content="Straw Dogs LLC" />
+    <meta name="author" content="Straw Dogs Development" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -38,7 +41,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -63,7 +66,6 @@ const {
         );
         els.forEach((el) => observer.observe(el));
       }
-
       window.addEventListener('load', revealOnScroll);
       let scrolled = false;
       window.addEventListener('scroll', () => {

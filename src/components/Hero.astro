@@ -1,41 +1,31 @@
 ---
 ---
 
-<section class="relative pt-36 pb-24 sm:pt-44 sm:pb-32 px-6 overflow-hidden">
-  <!-- Ambient copper glow -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] -z-10 pointer-events-none"
-    style="background: radial-gradient(ellipse at center, rgba(184, 133, 74, 0.12) 0%, transparent 60%);">
-  </div>
-
-  <!-- Subtle grid lines -->
-  <div class="absolute inset-0 -z-10 opacity-[0.025] pointer-events-none"
-    style="background-image: linear-gradient(rgb(237 237 234) 1px, transparent 1px), linear-gradient(90deg, rgb(237 237 234) 1px, transparent 1px); background-size: 80px 80px;">
-  </div>
-
-  <div class="max-w-6xl mx-auto relative z-10">
-    <!-- Top metadata bar -->
-    <div class="flex items-center justify-between border-b border-rule pb-3 mb-12 sm:mb-16">
-      <div class="flex items-center gap-3">
-        <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper animate-pulse"></span>
-        <p class="mono-label">Straw Dogs LLC / 001</p>
-      </div>
-      <p class="mono-label hidden sm:block">A Boutique Ghostwriting + Authority Architecture Firm</p>
-    </div>
-
-    <p class="eyebrow mb-8">For Hybrid Publishers / A Working Note</p>
-
-    <!-- Display headline -->
-    <div>
-      <h1 class="display-vp text-balance mb-10">
-        <span class="kinetic-weight">Story is a technology.</span><br />
-        <span class="display-italic kinetic-italic">Not a talent.</span>
-      </h1>
-
-      <p class="font-display italic text-xl sm:text-2xl md:text-3xl leading-[1.35] text-bone-soft max-w-3xl text-balance"
-        style="font-variation-settings: 'opsz' 144;">
-        A handful of titles a year define a publisher; the rest fade. The difference is rarely
-        the cover, the marketing budget, or the launch. It's the architecture of the manuscript itself.
-      </p>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow hero-eyebrow">For Authors Considering a Book</span>
+    <h1 class="display-vp hero-h1">
+      You're about to write a book that will <span class="display-italic kinetic-italic">outlive most of what you've made.</span>
+    </h1>
+    <p class="lede hero-sub">
+      We take that seriously. Straw Dogs builds the one people are still quoting two years later — the one that fills speaking calendars, and opens doors you didn't know existed.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="#engage">Start a Project</a>
+      <a class="link-arrow" href="#method">See how we build a book ↓</a>
     </div>
   </div>
 </section>
+
+<style>
+  .hero { padding: 5.5rem 0 4.5rem; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
+  .hero-eyebrow { display: block; margin-bottom: 1.6rem; }
+  .hero-h1 { max-width: 16ch; margin: 0 0 2rem; text-wrap: balance; }
+  .hero-sub {
+    font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+    max-width: 44ch; margin: 0 0 2.5rem;
+  }
+  .hero-cta { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+  @media (max-width: 720px) { .hero { padding: 3.5rem 0 3rem; } }
+</style>

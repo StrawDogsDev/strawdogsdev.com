@@ -1,77 +1,50 @@
 ---
 const engines = [
-  {
-    number: "01",
-    name: "Conflict",
-    label: "The attentional gate",
-    description: "Without a gap between what is and what should be, the reader's brain never engages. Most books open with information. The ones that land open with tension.",
-    diagnostic: "Where on page one does the reader feel a gap between what is and what should be?"
-  },
-  {
-    number: "02",
-    name: "Character",
-    label: "A before-state to inhabit",
-    description: "Not biography. The reader must see themselves in the protagonist's position before transformation—or they observe the book instead of entering it.",
-    diagnostic: "Could the reader inhabit your protagonist's before-state — or are they only watching from outside?"
-  },
-  {
-    number: "03",
-    name: "Change",
-    label: "The identity shift",
-    description: "Not simply new information, but a new answer to who am I. The books that change people make the old version of the reader impossible to return to.",
-    diagnostic: "After reading this, what does the reader believe about themselves that they didn't before?"
-  },
-  {
-    number: "04",
-    name: "Stakes",
-    label: "The cost of not moving",
-    description: "Without felt consequence, a book is an anecdote. With it, the book becomes an argument the reader makes to themselves about why they have to act.",
-    diagnostic: "What does the reader lose by not changing? Is that loss felt, or only stated?"
-  },
+  { number: "01", name: "Conflict", label: "The attentional gate",
+    body: "Without a gap between what is and what should be, the reader's brain never engages. We open with tension, not information." },
+  { number: "02", name: "Character", label: "A before-state to inhabit",
+    body: "The reader must see themselves in the protagonist's position before transformation — or they observe the book instead of entering it." },
+  { number: "03", name: "Change", label: "The identity shift",
+    body: "Not new information. A new answer to who am I. The books that change people make the old version of the reader impossible to return to." },
+  { number: "04", name: "Stakes", label: "The cost of not moving",
+    body: "Without felt consequence, a book is an anecdote. With it, the book becomes an argument the reader makes to themselves about why they have to act." },
 ];
 ---
 
-<section id="method" class="border-t border-rule py-20 sm:py-28 px-6 fade-in">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-14 sm:mb-16 max-w-3xl">
-      <p class="eyebrow mb-3">/ The Method</p>
-      <h2 class="display text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-6 text-balance" style="font-weight: 500;">
-        The <span class="display-italic" style="font-weight: 500;">Four Narrative Engines</span><sup class="text-[0.35em] align-super opacity-60 ml-1">&trade;</sup>
-      </h2>
-      <p class="text-bone-soft leading-relaxed text-lg">
-        Every nonfiction book that meaningfully changes a reader runs on the same four engines.
-        When all four fire, the book transforms. When one is missing, readers walk away unchanged
-        and stop recommending it.
+<section id="method" class="section fade-in">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="display:block; margin-bottom:1rem;">The Method</span>
+      <h2 class="h2" style="margin-bottom:1.5rem;">The Four Narrative Engines<span class="tm">&trade;</span></h2>
+      <p class="lede" style="font-size:clamp(1.05rem,1.8vw,1.35rem);">
+        AI is about to create the greatest sea of sameness we've ever experienced. How do you rise
+        above that and stand out? <span style="color:var(--color-blue); font-style:normal; font-weight:500;">You engage the Four Narrative Engines.</span>
       </p>
-      <p class="mono-label mt-4 hidden sm:block">/ Hover any engine to reveal its diagnostic</p>
     </div>
 
-    <div class="grid sm:grid-cols-2 gap-5 lg:gap-6">
-      {engines.map((engine) => (
-        <div class="engine-card surface rounded-sm p-7 sm:p-8 group hover:surface-glow transition-all duration-500 cursor-default" tabindex="0">
-          <div class="flex items-baseline gap-3 mb-4">
-            <span class="font-mono text-xs tracking-[0.18em] text-copper">{engine.number}</span>
-            <span class="copper-rule flex-1 opacity-30 group-hover:opacity-100 transition-opacity duration-500"></span>
-            <span class="font-mono text-xs tracking-[0.18em] uppercase text-bone-mute">{engine.name}</span>
+    <div class="engine-grid">
+      {engines.map((e) => (
+        <article class="card card-hover engine">
+          <div class="engine-meta">
+            <span class="engine-num">{e.number}</span>
+            <span class="engine-bar"></span>
+            <span class="engine-name">{e.name}</span>
           </div>
-          <h3 class="display text-2xl sm:text-3xl mb-4 text-bone leading-tight" style="font-weight: 500;">
-            {engine.label}
-          </h3>
-          <p class="text-bone-soft leading-relaxed text-[0.95rem]">{engine.description}</p>
-
-          <!-- Hover-revealed diagnostic -->
-          <div class="reveal-on-hover">
-            <div class="border-l-2 border-copper pl-4 py-1">
-              <p class="font-mono text-[0.65rem] tracking-[0.16em] uppercase reveal-label mb-2">
-                / Diagnostic Question
-              </p>
-              <p class="font-display italic text-bone leading-snug text-[1.05rem]" style="font-variation-settings: 'opsz' 144;">
-                {engine.diagnostic}
-              </p>
-            </div>
-          </div>
-        </div>
+          <h3 class="h3" style="margin-bottom:1rem;">{e.label}</h3>
+          <p class="body-text" style="font-size:0.97rem;">{e.body}</p>
+        </article>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .engine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .engine { padding: 2.1rem 2.2rem 2.3rem; }
+  .engine-meta { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.4rem; }
+  .engine-num { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--color-blue); }
+  .engine-bar { flex: 1; height: 1px; background: var(--color-rule); transition: background 0.45s ease; }
+  .engine:hover .engine-bar { background: var(--color-blue); }
+  .engine-name { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-ink-mute); }
+  @media (max-width: 720px) { .engine-grid { grid-template-columns: 1fr; } }
+</style>

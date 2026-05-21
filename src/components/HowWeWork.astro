@@ -1,0 +1,76 @@
+---
+const spectrum = [
+  { tag: "Architecture", sub: "Blueprint Only",
+    body: "We build the load-bearing argument, chapter map, narrative engines, and voice guide. You take it from there. Often the right choice for authors who can write but can't see the shape of their own book yet." },
+  { tag: "Thought Partnership", sub: "Architecture + Drafting",
+    body: "Architecture, plus structured conversations chapter by chapter. You talk, we transcribe and shape, you respond to what comes back. The fastest path for experts whose superpower is reducing their thoughts to words but not to writing — or who simply don't have time to write it themselves." },
+  { tag: "Full Ghostwrite", sub: "End to End",
+    body: "Discovery, architecture, chapter-by-chapter drafting, refinement, and delivery. A real partnership from first conversation to final page." },
+  { tag: "Beyond the Manuscript", sub: "After-Book",
+    body: "Jacket copy, marketing one-sheets, podcast talking points, keynote-ready excerpts, course development. You decide what you want from us." },
+];
+---
+
+<section class="section fade-in">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="display:block; margin-bottom:1rem;">How We Work</span>
+      <h2 class="h2" style="margin-bottom:1.5rem;">By the hour. <span class="display-italic">By the week.</span></h2>
+      <p class="lede" style="font-size:clamp(1.05rem,1.7vw,1.3rem);">
+        Some authors finish in three months; others take a year and a half. Some hire us to
+        architect a manuscript and walk away. Others stay through publication, the podcast tour, and
+        the second book. You decide — and we stay with you all the way.
+      </p>
+    </div>
+
+    <div class="callouts">
+      <div class="callout-blue">
+        <p class="eyebrow" style="color:rgba(255,255,255,0.7); display:block; margin-bottom:0.9rem;">The Engagement</p>
+        <h3 class="h3" style="color:#fff; font-style:italic; margin-bottom:1rem;">You control the gas and the brake.</h3>
+        <p style="color:rgba(255,255,255,0.88); line-height:1.6; margin:0;">
+          We accelerate when you need us to. We slow down when you need us to. We bill by the hour and
+          invoice weekly — so you see what we did, where it landed, and what comes next. And most
+          importantly, <strong style="color:#fff;">if you have a publisher's deadline, we'll meet it.</strong>
+        </p>
+      </div>
+      <div class="callout-plain">
+        <p class="label" style="display:block; margin-bottom:0.9rem;">The Spectrum</p>
+        <h3 class="h3 display-italic" style="color:var(--color-ink); margin-bottom:1rem;">We meet you where you are.</h3>
+        <p class="body-text" style="margin:0;">
+          Every author arrives in a slightly different place. Some can write and need a light editor.
+          Some can draft to the three-yard line and need someone to run it in. Some need a thought
+          partner who pulls the book out of them. Some need the architecture only — and take it from there.
+        </p>
+      </div>
+    </div>
+
+    <dl class="spectrum">
+      {spectrum.map((s) => (
+        <div class="spec-row">
+          <dt>
+            <span class="spec-tag">{s.tag}</span>
+            <span class="spec-sub">{s.sub}</span>
+          </dt>
+          <dd class="body-text">{s.body}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 3rem; }
+  .callout-blue { background: linear-gradient(165deg, var(--color-blue) 0%, var(--color-blue-deep) 100%); border-radius: 2px; padding: 2.1rem; }
+  .callout-plain { padding: 2.1rem 0.25rem; }
+  .spectrum { margin: 0; }
+  .spec-row { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--color-rule); }
+  .spec-row:last-child { border-bottom: 1px solid var(--color-rule); }
+  .spec-tag { display: block; font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink); margin-bottom: 0.3rem; }
+  .spec-sub { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-blue); }
+  .spec-row dd { margin: 0; }
+  @media (max-width: 760px) {
+    .callouts { grid-template-columns: 1fr; }
+    .callout-plain { padding: 0.5rem 0 0; }
+    .spec-row { grid-template-columns: 1fr; gap: 0.7rem; }
+  }
+</style>

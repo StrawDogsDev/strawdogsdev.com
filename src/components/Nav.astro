@@ -1,63 +1,70 @@
 ---
+interface Link { label: string; href: string; }
+interface Props {
+  links?: Link[];
+  cta?: Link;
+  cross?: Link;
+}
+const {
+  links = [
+    { label: "The Method", href: "#method" },
+    { label: "The Work", href: "#work" },
+    { label: "The Team", href: "#team" },
+  ],
+  cta = { label: "Start a Project", href: "#engage" },
+  cross,
+} = Astro.props;
 ---
 
-<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 group">
-      <span class="text-xs tracking-[0.18em] uppercase font-medium text-bone group-hover:text-copper transition-colors" style="font-family: var(--font-sans)">
-        Straw Dogs <span class="text-bone-mute">Dev</span>
-      </span>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Straw Dogs Development home">
+      <img class="brand-mark" src="/images/dog-mark.png" alt="" width="363" height="238" />
+      <span class="wordmark">Straw Dogs <span class="wm-sub">Development</span></span>
     </a>
 
-    <div class="flex items-center gap-7">
-      <a
-        href="#method"
-        class="hidden sm:inline-block text-xs tracking-[0.14em] uppercase text-bone-soft hover:text-copper transition-colors"
-        style="font-family: var(--font-mono)"
-      >
-        Method
-      </a>
-      <a
-        href="#team"
-        class="hidden sm:inline-block text-xs tracking-[0.14em] uppercase text-bone-soft hover:text-copper transition-colors"
-        style="font-family: var(--font-mono)"
-      >
-        Team
-      </a>
-      <a
-        href="#work"
-        class="hidden sm:inline-block text-xs tracking-[0.14em] uppercase text-bone-soft hover:text-copper transition-colors"
-        style="font-family: var(--font-mono)"
-      >
-        Work
-      </a>
-      <a
-        href="#contact"
-        class="text-xs tracking-[0.14em] uppercase text-copper hover:text-copper-bright transition-colors flex items-center gap-1.5"
-        style="font-family: var(--font-mono)"
-      >
-        Contact
-        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" class="opacity-70">
-          <path d="M3 3L9 9M9 3v6H3" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-        </svg>
-      </a>
+    <div class="nav-links">
+      {links.map((l) => <a class="nav-link" href={l.href}>{l.label}</a>)}
+      {cross && <a class="nav-link nav-cross" href={cross.href}>{cross.label} →</a>}
+      <a class="nav-cta" href={cta.href}>{cta.label}</a>
     </div>
   </div>
 </nav>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav?.style.setProperty('background', 'rgba(10, 11, 13, 0.78)');
-      nav?.style.setProperty('backdrop-filter', 'blur(12px) saturate(1.4)');
-      nav?.style.setProperty('-webkit-backdrop-filter', 'blur(12px) saturate(1.4)');
-      nav?.style.setProperty('border-bottom', '1px solid rgba(237, 237, 234, 0.08)');
-    } else {
-      nav?.style.setProperty('background', 'transparent');
-      nav?.style.setProperty('backdrop-filter', 'none');
-      nav?.style.setProperty('-webkit-backdrop-filter', 'none');
-      nav?.style.setProperty('border-bottom', 'none');
-    }
-  });
-</script>
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244, 240, 230, 0.82);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    backdrop-filter: blur(10px) saturate(1.2);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .nav-inner {
+    max-width: 1120px; margin: 0 auto; padding: 0.85rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+  .brand-mark { height: 28px; width: auto; display: block; }
+  .wordmark {
+    font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase;
+    font-weight: 600; color: var(--color-ink);
+  }
+  .wordmark .wm-sub { color: var(--color-ink-mute); font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 1.6rem; }
+  .nav-link {
+    font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--color-ink-soft); text-decoration: none; transition: color 0.3s ease;
+  }
+  .nav-link:hover { color: var(--color-blue); }
+  .nav-cross { color: var(--color-ink-mute); }
+  .nav-cta {
+    font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+    color: #fff; background: var(--color-blue); padding: 0.55rem 1rem; border-radius: 2px;
+    text-decoration: none; transition: background 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--color-blue-deep); }
+  @media (max-width: 860px) {
+    .nav-link { display: none; }
+    .nav-cross { display: none; }
+  }
+</style>

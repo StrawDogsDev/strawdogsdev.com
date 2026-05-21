@@ -1,81 +1,64 @@
 ---
-const featured = [
-  {
-    title: "The Best Christmas Pageant Ever",
-    detail: "Lionsgate, 2024",
-    credit: "Credited screenwriter",
-    note: "92% Critics / 97% Audiences. Top-40 box office. Studio film as deliverable."
-  },
-  {
-    title: "The Bad Unicorn Trilogy",
-    detail: "Aladdin / Simon & Schuster",
-    credit: "250K+ trade copies sold",
-    note: "Big Five fiction, three-book deal. Demonstrates load-bearing series architecture."
-  },
-];
-
 const books = [
-  { title: "The Leader's Guide to Unconscious Bias", detail: "Fuller, Murphy, Anne Chow (CEO, AT&T Business)", publisher: "FranklinCovey" },
-  { title: "Master Mentors, Vols. 1 & 2", detail: "Scott Jeffrey Miller", publisher: "FranklinCovey" },
-  { title: "Get Better", detail: "Todd Davis, CPO, FranklinCovey", publisher: "FranklinCovey" },
-  { title: "Leading Loyalty", detail: "Rogers, Rinne, Moon", publisher: "FranklinCovey" },
-  { title: "The Mind Strength Playbook", detail: "Luke Falk", publisher: "NFL QB & Mental-Strength Coach" },
-  { title: "Deliver: Why Some Leaders Get Results & Most Don't", detail: "Hill, Jones, Corbridge", publisher: "" },
+  { cat: "FranklinCovey", title: "The Leader's Guide to Unconscious Bias", who: "Pamela Fuller · Mark Murphy · Anne Chow", note: "Former CEO, AT&T Business · Wall Street Journal Bestseller" },
+  { cat: "FranklinCovey", title: "Get Better", who: "Todd Davis", note: "Chief People Officer, FranklinCovey · Fifteen practices for relationships at work" },
+  { cat: "FranklinCovey", title: "Master Mentors, Vols. 1 & 2", who: "Scott Jeffrey Miller", note: "Sixty transformative insights from leading minds" },
+  { cat: "FranklinCovey", title: "Leading Loyalty", who: "Sandy Rogers · Leena Rinne · Shawn Moon", note: "Cracking the code to customer devotion" },
+  { cat: "Memoir", title: "Loose Cannons", who: "Diana Cannon Ragsdale", note: "A literary family memoir" },
+  { cat: "Sports · Mental Performance", title: "The Mind Strength Playbook", who: "Luke Falk", note: "Former NFL Quarterback · Mental-Strength Coach" },
+  { cat: "Forthcoming · 2026", title: "Stupider People Have Done It", who: "Jay Schwedelson", note: "Marketing truths, career moves, and life advice for doers" },
+  { cat: "Forthcoming · 2026", title: "The Pressure Code", who: "Jason Stacy", note: "Performance coach to Aryna Sabalenka and the WTA tour" },
+  { cat: "Memoir", title: "Life is Luck", who: "John Morgan", note: "Founder, Morgan & Morgan · America's largest plaintiffs' firm" },
 ];
-
-const forthcoming = "Schwedelson · Stacy · Client Giant · Fossler · Morris";
 ---
 
-<section id="work" class="border-t border-rule py-20 sm:py-28 px-6 fade-in">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-14 sm:mb-16">
-      <p class="eyebrow mb-3">/ Selected Proof Shelf</p>
-      <h2 class="display text-4xl sm:text-5xl md:text-6xl leading-[1.05]" style="font-weight: 500;">
-        A sample of <span class="display-italic" style="font-weight: 500;">the work</span>.
-      </h2>
+<section id="work" class="section fade-in">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="display:block; margin-bottom:1rem;">Selected Work</span>
+      <h2 class="h2" style="margin-bottom:1.5rem;">Books we've <span class="display-italic">built.</span></h2>
+      <p class="lede" style="font-size:clamp(1.05rem,1.7vw,1.3rem);">
+        Over thirty trade nonfiction titles across leadership, sales, marketing, sports performance,
+        behavioral change, and memoir. A representative selection below — multiple FranklinCovey
+        co-authorships, several forthcoming 2026 titles, and the only memoir on the list comes from
+        one of the most quoted attorneys in the country.
+      </p>
     </div>
 
-    <!-- Featured cells (bento) -->
-    <div class="grid md:grid-cols-2 gap-4 sm:gap-5 mb-5 sm:mb-6">
-      {featured.map((b) => (
-        <div class="surface-glow rounded-sm p-7 sm:p-8 flex flex-col gap-5">
-          <div class="flex items-center gap-3">
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-copper"></span>
-            <span class="mono-label">/ Featured</span>
-            <span class="copper-rule flex-1 opacity-30"></span>
-          </div>
-          <div>
-            <h3 class="display text-2xl sm:text-3xl text-bone leading-tight mb-2" style="font-weight: 500;">{b.title}</h3>
-            <p class="font-display italic text-bone-soft" style="font-variation-settings: 'opsz' 14;">{b.detail}</p>
-          </div>
-          <div class="mt-auto">
-            <p class="font-mono text-[0.65rem] tracking-[0.14em] uppercase text-copper mb-2">{b.credit}</p>
-            <p class="text-sm text-bone-soft leading-relaxed">{b.note}</p>
-          </div>
-        </div>
+    <div class="book-grid">
+      {books.map((b) => (
+        <article class="card card-hover book">
+          <p class="book-cat">{b.cat}</p>
+          <h3 class="h3 book-title">{b.title}</h3>
+          <p class="book-who">{b.who}</p>
+          <p class="book-note">{b.note}</p>
+        </article>
       ))}
     </div>
 
-    <!-- Supporting grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-9">
-      {books.map((b, i) => (
-        <div class="border-t border-rule pt-4">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="font-mono text-xs text-bone-mute tracking-wider">{String(i + 1).padStart(2, '0')}</span>
-            <span class="copper-rule flex-1 opacity-30"></span>
-          </div>
-          <h3 class="display text-lg leading-snug mb-1.5 text-bone" style="font-weight: 500;">{b.title}</h3>
-          <p class="text-sm text-bone-soft italic leading-snug" style="font-family: var(--font-display); font-variation-settings: 'opsz' 14;">{b.detail}</p>
-          {b.publisher && (
-            <p class="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-bone-mute mt-2">{b.publisher}</p>
-          )}
-        </div>
-      ))}
-    </div>
-
-    <div class="mt-14 pt-7 border-t border-rule-strong">
-      <p class="eyebrow mb-3">/ Forthcoming, 2026</p>
-      <p class="display italic text-2xl text-bone-soft" style="font-weight: 400; font-variation-settings: 'opsz' 144;">{forthcoming}</p>
-    </div>
+    <p class="other-work">
+      <strong>Other recent and ongoing work</strong> includes <em>Automating Thoughtfulness</em>
+      (Jay O'Brien & Jeff Jackel, co-founders of Client Giant); <em>Management Mess to Leadership
+      Success</em>, <em>Marketing Mess to Brand Success</em>, <em>Career on Course</em>, and
+      <em>Parenting Wrong Turns, Right Lessons</em> (Scott Jeffrey Miller, FranklinCovey);
+      <em>Who Rocked the Boat</em> and <em>Change</em> (Curtis Bateman, FranklinCovey);
+      <em>The Entrepreneur's Paradox</em> (Curtis Morley); <em>Deliver</em> (Hill, Jones, Corbridge);
+      <em>The Ultimate Guide to Great Mentorship</em> (Scott Jeffrey Miller); <em>Hidden Value</em>
+      (Dr. Keith Keating); and additional 2026 titles in development.
+    </p>
   </div>
 </section>
+
+<style>
+  .book-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  .book { padding: 1.7rem 1.7rem 1.9rem; display: flex; flex-direction: column; }
+  .book-cat { font-family: var(--font-body); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-blue); margin: 0 0 1rem; }
+  .book-title { font-size: clamp(1.2rem, 1.6vw, 1.45rem); margin: 0 0 0.7rem; }
+  .book-who { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 30; color: var(--color-ink); font-size: 0.95rem; margin: 0 0 0.5rem; }
+  .book-note { font-size: 0.82rem; color: var(--color-ink-mute); line-height: 1.45; margin: 0; }
+  .other-work { margin: 2.5rem 0 0; padding-top: 2rem; border-top: 1px solid var(--color-rule); font-size: 0.9rem; line-height: 1.7; color: var(--color-ink-mute); }
+  .other-work strong { color: var(--color-ink-soft); }
+  .other-work em { font-style: italic; }
+  @media (max-width: 860px) { .book-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .book-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FourEngines from '../components/FourEngines.astro';
+import Stats from '../components/Stats.astro';
+import Team from '../components/Team.astro';
+import Footer from '../components/Footer.astro';
+
+const models = [
+  { code: "01", title: "Referral Network",
+    body: "We refer authors who need your packaging, distribution, and marketing engine. You refer authors who arrive needing a writer." },
+  { code: "02", title: "White-Label Engine",
+    body: "We function as your in-house ghostwriting capability under your imprint. The author works with us; the credit, the relationship, and the book belong to your house." },
+  { code: "03", title: "Project Engagement",
+    body: "Direct, scoped, by deliverable. Full ghostwrite, framework architecture, manuscript repair, or developmental edit — priced by the hours the work actually demands." },
+];
+---
+
+<BaseLayout title="Straw Dogs Development — For Hybrid Publishers" noindex={true}>
+  <Nav
+    links={[{ label: "The Method", href: "#method" }, { label: "Track Record", href: "#track" }, { label: "The Team", href: "#team" }]}
+    cta={{ label: "Contact", href: "#contact" }}
+    cross={{ label: "For Authors", href: "/" }}
+  />
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow hero-eyebrow">For Hybrid Publishers</span>
+        <h1 class="display-vp hero-h1">
+          Story is a technology. <span class="display-italic kinetic-italic">Not a talent.</span>
+        </h1>
+        <p class="lede hero-sub">
+          A handful of titles a year define a publisher; the rest fade. The difference is rarely the
+          cover, the marketing budget, or the launch. It's the architecture of the manuscript itself.
+        </p>
+      </div>
+    </section>
+
+    <!-- Position / Problem -->
+    <section class="section fade-in">
+      <div class="wrap pos-grid">
+        <div>
+          <span class="eyebrow" style="display:block; margin-bottom:1rem;">The Position</span>
+          <h2 class="h2" style="font-size:clamp(1.8rem,3.5vw,2.6rem); margin-bottom:1.4rem;">What Straw Dogs Does</h2>
+          <div class="body-text pos-body">
+            <p>We ghostwrite and architect nonfiction books for executives, founders, and
+            category-defining experts, partnering with hybrid publishers who need a writing engine
+            they can stand behind.</p>
+            <p>Across thirty years and over thirty ghostwritten titles, one pattern has held. The
+            books that change readers don't simply work harder than the ones that don't. They work
+            <em>differently</em> — built around an argument the reader can't refute, a transformation
+            the reader can feel, and a framework the reader can carry into their life or work.</p>
+            <p class="on-ink"><strong>That's the deliverable. The byline goes on the author, the architecture comes from us.</strong></p>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow" style="display:block; margin-bottom:1rem;">The Problem</span>
+          <h2 class="h2" style="font-size:clamp(1.8rem,3.5vw,2.6rem); margin-bottom:1.4rem;">Most Manuscripts Arrive Half-Built</h2>
+          <div class="body-text pos-body">
+            <p>The expert is often brilliant in the room and forgettable on the page. The voice is
+            there but the structure isn't. The framework was promised in the proposal and never built
+            in the draft. And increasingly, what lands in your inbox is AI-assisted prose that enters
+            the growing sea of sameness.</p>
+            <p>No design, marketing, or print spec can rescue a manuscript that lacks a load-bearing
+            argument. Your imprint will only ever be as strong as the writing it puts its name behind.</p>
+            <p class="on-ink"><strong>That's the gap we close.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <PullQuote cite="Platte F. Clark · Author Unknown · Forthcoming">
+      &ldquo;<span class="display-italic">AI has no wound.</span>&rdquo;
+    </PullQuote>
+
+    <FourEngines />
+    <Stats />
+
+    <!-- Engagement Models -->
+    <section class="section fade-in">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow" style="display:block; margin-bottom:1rem;">Engagement Models</span>
+          <h2 class="h2">How publishers <span class="display-italic">work with us.</span></h2>
+        </div>
+        <div class="model-grid">
+          {models.map((m) => (
+            <article class="card card-hover model">
+              <div class="model-top">
+                <span class="model-code">{m.code}</span>
+                <span class="rule-blue" style="flex:1; opacity:0.3;"></span>
+              </div>
+              <h3 class="model-title">{m.title}</h3>
+              <p class="body-text" style="font-size:0.95rem;">{m.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Team />
+
+    <!-- Contact -->
+    <section id="contact" class="section fade-in">
+      <div class="wrap">
+        <span class="eyebrow" style="display:block; margin-bottom:1rem;">Contact</span>
+        <h2 class="h2" style="margin-bottom:2rem;">Start a conversation about a <span class="display-italic">manuscript.</span></h2>
+        <div class="contact-row">
+          <a class="btn btn-solid" href="mailto:platte@strawdogsdev.com">platte@strawdogsdev.com</a>
+          <a class="link-arrow" href="tel:8016422453">801 · 642 · 2453</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero { padding: 5.5rem 0 4.5rem; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
+  .hero-eyebrow { display: block; margin-bottom: 1.6rem; }
+  .hero-h1 { max-width: 18ch; margin: 0 0 2rem; text-wrap: balance; }
+  .hero-sub { font-size: clamp(1.15rem, 2.4vw, 1.7rem); max-width: 46ch; margin: 0; }
+  .pos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+  .pos-body p { margin: 0 0 1.1rem; line-height: 1.62; }
+  .pos-body em { font-style: italic; color: var(--color-blue); font-weight: 500; }
+  .model-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .model { padding: 2rem 1.9rem 2.1rem; }
+  .model-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.3rem; }
+  .model-code { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--color-blue); }
+  .model-title { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-ink); margin: 0 0 0.9rem; }
+  .contact-row { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+  @media (max-width: 760px) {
+    .hero { padding: 3.5rem 0 3rem; }
+    .pos-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .model-grid { grid-template-columns: 1fr; }
+  }
+</style>
