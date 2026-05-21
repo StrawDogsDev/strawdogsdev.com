@@ -136,7 +136,7 @@
     transform: translateY(-3px);
     box-shadow: 0 18px 40px -24px rgba(26, 42, 166, 0.35);
   }
-  /* inverted navy card — the brochure's black callout box */
+  /* inverted navy card—the brochure's black callout box */
   .card-invert {
     background: linear-gradient(165deg, #20242f 0%, #15171f 100%);
     border: 1px solid rgba(255,255,255,0.08);
