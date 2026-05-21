@@ -6,13 +6,15 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  canonical?: string;
 }
 
 const {
   title,
   description = "Straw Dogs Development — a boutique ghostwriting and book-architecture firm. We build behavior-change books that outlive most of what you've made.",
-  ogImage = "/images/og-image.jpg",
+  ogImage = "https://strawdogsdev.com/images/og-image.jpg",
   noindex = false,
+  canonical,
 } = Astro.props;
 ---
 
@@ -24,6 +26,7 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content="Straw Dogs Development" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {canonical && <link rel="canonical" href={canonical} />}
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
