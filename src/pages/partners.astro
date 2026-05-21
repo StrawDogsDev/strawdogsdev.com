@@ -37,6 +37,7 @@ const books = [
   { t: "Loose Cannons", m: "Diana Cannon Ragsdale · Memoir" },
   { t: "Life is Luck", m: "John Morgan · Morgan & Morgan" },
   { t: "Stay Dangerous", m: "Ara Suppiah, M.D." },
+  { t: "The Line Maker", m: "Brett Armstrong" },
   { t: "Stupider People Have Done It", m: "Jay Schwedelson · 2026" },
   { t: "The Pressure Code", m: "Jason Stacy · 2026" },
   { t: "Daymakers", m: "O'Brien & Jackel, Client Giant · 2026" },
@@ -312,6 +313,12 @@ const engagement = [
       </div>
     </section>
 
+    <!-- Team photo band -->
+    <section class="p-section p-photo-section">
+      <div class="p-photo" role="img" aria-label="The Straw Dogs Development team with a finished book"></div>
+      <div class="p-wrap"><p class="p-photo-cap">The team — with a finished book.</p></div>
+    </section>
+
     <!-- 8 · CONTACT -->
     <section id="contact" class="p-section">
       <div class="p-wrap">
@@ -454,6 +461,18 @@ const engagement = [
   }
   .p-spec-lead { font-weight: 600; font-style: normal; }
 
+  /* Team photo band — single full-bleed B&W moment */
+  .p-photo {
+    width: 100%; height: clamp(260px, 32vw, 460px);
+    background-image: url('/images/team.jpg');
+    background-size: cover; background-position: center 30%;
+    border-radius: 2px;
+  }
+  .p-photo-cap {
+    font-family: var(--font-body); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--p-mute); margin: 1rem 0 0; text-align: center;
+  }
+
   /* The shelf—books + courses, no cards */
   .p-shelf-group { margin-bottom: 2.75rem; }
   .p-shelf-label { font-family: var(--font-body); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--p-blue); margin: 0 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--p-rule); }
@@ -480,6 +499,7 @@ const engagement = [
     .p-grid { grid-template-columns: 1fr; gap: 1rem; }
     .p-margin { border-left: 0; padding-left: 0; padding-top: 0; margin-bottom: 1.5rem; font-style: italic; text-transform: none; letter-spacing: 0.02em; font-size: 0.8rem; order: -1; }
     .p-cols3 { grid-template-columns: 1fr; gap: 2rem; }
+    .p-photo { height: auto; aspect-ratio: 2400 / 1023; }
   }
   @media (max-width: 600px) {
     .p-lane { grid-template-columns: 1fr; gap: 0.6rem; }
