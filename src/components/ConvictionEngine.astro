@@ -1,0 +1,62 @@
+---
+const stages = [
+  { number: "01", name: "Facts", role: "the fuel",
+    body: "The right mix of evidence&mdash;enough to earn trust, not so much it floods the engine." },
+  { number: "02", name: "Flow", role: "the structure",
+    body: "The order and timing of revelation. Story has structure; meaning is its cargo. Stories are built, not told." },
+  { number: "03", name: "Meaning", role: "the spark",
+    body: "Where conflict, character, change, and stakes turn information into something that matters. The stage where most books stall." },
+  { number: "04", name: "Emotion", role: "the combustion",
+    body: "Meaning <em>felt</em>. The reader locating themselves inside the story." },
+  { number: "05", name: "Drive", role: "the transmission",
+    body: "Feeling converted into the belief that they can act, it will work, and it will matter." },
+  { number: "06", name: "Action", role: "the movement",
+    body: "The only destination. The test of any book isn't &ldquo;what did you learn?&rdquo; but &ldquo;what do you want to do now?&rdquo;" },
+];
+---
+
+<section id="method" class="section fade-in">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="display:block; margin-bottom:1rem;">The Method</span>
+      <h2 class="h2" style="margin-bottom:1.5rem;">The Conviction Engine<span class="tm">&trade;</span></h2>
+      <p class="lede" style="font-size:clamp(1.05rem,1.8vw,1.35rem);">
+        Most books fail not because the ideas are wrong, but because nothing happens to the reader.
+        The Conviction Engine runs on six sequential stages.
+        <span style="color:var(--color-blue); font-style:normal; font-weight:500;">Every stage has to fire.</span>
+      </p>
+    </div>
+
+    <div class="engine-grid">
+      {stages.map((s) => (
+        <article class="card card-hover engine">
+          <div class="engine-meta">
+            <span class="engine-num">{s.number}</span>
+            <span class="engine-bar"></span>
+            <span class="engine-name">{s.name}</span>
+          </div>
+          <h3 class="h3 engine-role">{s.role}</h3>
+          <p class="body-text" style="font-size:0.97rem;" set:html={s.body} />
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .engine-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  .engine { padding: 1.9rem 1.9rem 2rem; display: flex; flex-direction: column; }
+  .engine-meta { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.15rem; }
+  .engine-num { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--color-blue); }
+  .engine-bar { flex: 1; height: 1px; background: var(--color-rule); transition: background 0.45s ease; }
+  .engine:hover .engine-bar { background: var(--color-blue); }
+  .engine-name { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-ink-mute); }
+  .engine-role {
+    font-family: var(--font-display); font-style: italic; font-weight: 500;
+    font-variation-settings: "opsz" 90; color: var(--color-blue);
+    margin-bottom: 0.9rem; font-size: clamp(1.3rem, 2vw, 1.65rem);
+  }
+  .engine .body-text em { font-style: italic; color: var(--color-ink); }
+  @media (max-width: 960px) { .engine-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .engine-grid { grid-template-columns: 1fr; } }
+</style>
