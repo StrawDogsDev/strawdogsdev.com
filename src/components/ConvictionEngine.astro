@@ -27,6 +27,16 @@ const stages = [
       </p>
     </div>
 
+    <figure class="engine-diagram">
+      <img
+        src="/images/conviction-engine.png"
+        alt="The six stages of the Conviction Engine: Facts, Flow, Meaning, Emotion, Drive, Action. Every stage is necessary. Action is the only destination."
+        width="3600"
+        height="1080"
+        loading="lazy"
+      />
+    </figure>
+
     <div class="engine-grid">
       {stages.map((s) => (
         <article class="card card-hover engine">
@@ -44,8 +54,38 @@ const stages = [
 </section>
 
 <style>
+  .engine-diagram {
+    margin: 0 0 1.6rem;
+    padding: 1.5rem 1.5rem 1.1rem;
+    background: var(--color-paper-card);
+    border: 1px solid var(--color-rule);
+    border-radius: 2px;
+  }
+  .engine-diagram img { width: 100%; height: auto; display: block; }
+  @media (max-width: 600px) {
+    .engine-diagram { padding: 1rem; }
+  }
+
   .engine-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-  .engine { padding: 1.9rem 1.9rem 2rem; display: flex; flex-direction: column; }
+  .engine {
+    padding: 1.9rem 1.9rem 2rem;
+    display: flex; flex-direction: column;
+    position: relative;
+    background: var(--color-paper-hi);
+    border-color: rgba(26, 35, 50, 0.20);
+    box-shadow: 0 10px 28px -18px rgba(26, 35, 50, 0.25);
+    overflow: hidden;
+  }
+  .engine::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-blue-deep) 100%);
+    opacity: 0.85;
+    transition: opacity 0.45s ease, height 0.45s ease;
+  }
+  .engine:hover::before { opacity: 1; height: 4px; }
   .engine-meta { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.15rem; }
   .engine-num { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--color-blue); }
   .engine-bar { flex: 1; height: 1px; background: var(--color-rule); transition: background 0.45s ease; }
