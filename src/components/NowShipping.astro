@@ -1,0 +1,196 @@
+---
+// "Now Shipping" callout band — features the most current trade title.
+// Uses the inverted navy-card treatment from the brochure for visual distinction.
+---
+
+<section id="now-shipping" class="section fade-in">
+  <div class="wrap">
+    <article class="now-shipping card card-invert">
+      <figure class="ns-photo">
+        <img
+          src="/images/schwedelson.jpg"
+          alt="Platte F. Clark with Jay Schwedelson"
+          width="1200"
+          height="1600"
+          loading="lazy"
+        />
+        <figcaption>On location · Jay Schwedelson &amp; Platte F. Clark</figcaption>
+      </figure>
+
+      <div class="ns-main">
+        <div class="ns-meta">
+          <span class="ns-pulse" aria-hidden="true"></span>
+          <span class="ns-eyebrow">Now Shipping</span>
+        </div>
+
+        <h2 class="display ns-title">
+          Stupider People <span class="display-italic ns-italic">Have Done It</span>
+        </h2>
+
+        <p class="ns-who">Jay Schwedelson</p>
+        <p class="ns-subtitle">Marketing truths, career moves, and life advice for doers.</p>
+
+        <div class="ns-body">
+          <p>
+            Schwedelson built one of the largest email-marketing voices on the internet
+            without ever sounding like an internet voice. The book had to do the same thing
+            on the page&mdash;direct, funny, generous, and structured so a reader can
+            actually run with it the next morning.
+          </p>
+          <p>
+            It's connecting fast. Which is the only metric that matters.
+          </p>
+        </div>
+
+        <div class="ns-cta-row">
+          <img
+            class="ns-cover"
+            src="/images/stupider-cover.jpg"
+            alt="Stupider People Have Done It book cover"
+            width="200"
+            height="300"
+            loading="lazy"
+          />
+          <div class="ns-cta-text">
+            <p class="label ns-cta-label">Out Now · 2026</p>
+            <p class="ns-cta-note">
+              Available wherever you buy books. Foreword on first principles, payoff on
+              the last page&mdash;the way it should be.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .now-shipping {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .ns-photo { margin: 0; position: relative; align-self: stretch; }
+  .ns-photo img {
+    width: 100%; height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover; object-position: center 25%;
+    display: block;
+    filter: contrast(1.04) saturate(1.02);
+  }
+  .ns-photo figcaption {
+    position: absolute;
+    left: 1.4rem; bottom: 1.2rem;
+    font-family: var(--font-body);
+    font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.55);
+    z-index: 2;
+  }
+  .ns-photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+
+  .ns-main {
+    padding: 3rem 3rem 3rem;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    color: #e9e6dd;
+  }
+
+  .ns-meta {
+    display: flex; align-items: center; gap: 0.7rem;
+    margin-bottom: 1.4rem;
+  }
+  .ns-pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--color-blue);
+    box-shadow: 0 0 0 0 rgba(36, 56, 212, 0.55);
+    animation: ns-pulse 2.2s ease-out infinite;
+  }
+  .ns-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: #8aa0ff;
+  }
+
+  .ns-title {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    line-height: 1.02;
+    color: #f4f1ea;
+    margin: 0 0 0.4rem;
+  }
+  .ns-italic { color: #c9d2ff; }
+
+  .ns-who {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 30;
+    font-size: 1rem;
+    color: #b9b6ad;
+    margin: 0 0 0.25rem;
+  }
+  .ns-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #b9b6ad;
+    margin: 0 0 1.6rem;
+    max-width: 36ch;
+  }
+
+  .ns-body { color: #cfccc2; line-height: 1.62; font-size: 0.95rem; }
+  .ns-body p { margin: 0 0 0.85rem; }
+  .ns-body p:last-child { margin-bottom: 0; }
+
+  .ns-cta-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.4rem;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid rgba(255,255,255,0.10);
+  }
+  .ns-cover {
+    width: 92px;
+    height: 138px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 14px 32px -16px rgba(0,0,0,0.8);
+    display: block;
+  }
+  .ns-cta-label {
+    color: #8aa0ff !important;
+    margin: 0 0 0.45rem;
+  }
+  .ns-cta-note {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #b9b6ad;
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  @keyframes ns-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(138, 160, 255, 0.55); }
+    70% { box-shadow: 0 0 0 12px rgba(138, 160, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(138, 160, 255, 0); }
+  }
+
+  @media (max-width: 860px) {
+    .now-shipping { grid-template-columns: 1fr; }
+    .ns-photo img { aspect-ratio: 4 / 3; object-position: center 30%; }
+    .ns-main { padding: 2rem 1.8rem 2.2rem; }
+    .ns-cta-row { grid-template-columns: 1fr; gap: 1.2rem; }
+    .ns-cover { width: 80px; height: 120px; }
+  }
+</style>
