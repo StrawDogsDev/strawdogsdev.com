@@ -50,7 +50,7 @@ const books = [
 <style>
   .book-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
   .book {
-    padding: 1.7rem 1.7rem 1.9rem 2rem;
+    padding: 1.7rem 1.7rem 1.9rem 2.3rem;
     display: flex; flex-direction: column;
     position: relative;
     background: var(--color-paper-hi);
@@ -62,12 +62,12 @@ const books = [
     content: "";
     position: absolute;
     top: 0; bottom: 0; left: 0;
-    width: 3px;
-    background: linear-gradient(180deg, var(--color-blue) 0%, var(--color-blue-deep) 100%);
-    opacity: 0.85;
-    transition: opacity 0.45s ease, width 0.45s ease;
+    width: 6px;
+    background: linear-gradient(180deg, #d4a35e 0%, var(--color-copper) 45%, #8a5f33 100%);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.18);
+    transition: width 0.45s ease;
   }
-  .book:hover::before { opacity: 1; width: 4px; }
+  .book:hover::before { width: 8px; }
   .book-cat { font-family: var(--font-body); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-blue); margin: 0 0 1rem; }
   .book-title { font-size: clamp(1.2rem, 1.6vw, 1.45rem); margin: 0 0 0.7rem; }
   .book-who { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 30; color: var(--color-ink); font-size: 0.95rem; margin: 0 0 0.5rem; }
