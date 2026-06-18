@@ -1,38 +1,307 @@
 ---
-const stats = [
-  { figure: "30+", label: "Trade nonfiction titles", note: "Leadership, sales, sports, behavior, memoir" },
-  { figure: "250K+", label: "Copies sold (Simon & Schuster)", note: "Bad Unicorn trilogy · distributed internationally" },
-  { figure: "92%", label: "Critics—Lionsgate feature, 2024", note: "The Best Christmas Pageant Ever" },
-  { figure: "30", label: "Years of curriculum design", note: "FranklinCovey · VitalSmarts · ZengerFolkman, and others" },
-];
+const featuredLionsgate = {
+  figure: "92%",
+  label: "Critics—Lionsgate feature, 2024",
+  note: "The Best Christmas Pageant Ever · 97% Audiences · Top-40 box office",
+};
+
+const featuredCurriculum = {
+  figure: "30",
+  label: "Years of curriculum design",
+  note: "FranklinCovey · VitalSmarts · ZengerFolkman · Chief Learning Officer for a Tony Robbins training partner",
+};
+
+const featuredCopies = {
+  figure: "250K+",
+  label: "Copies sold · Simon & Schuster",
+  note: "The Bad Unicorn trilogy at Aladdin / Simon & Schuster. Distributed internationally.",
+};
+
+const featuredBestseller = {
+  figure: "Bestsellers.",
+  label: "NYT · WSJ · Amazon",
+  note: "Across the ghostwritten nonfiction roster—leadership, sales, marketing, behavior. Plus a #1 bestseller shipping in 2026.",
+};
+
+const featuredTrusted = {
+  figure: "Trusted.",
+  label: "By the elite",
+  note: "Practitioners and thought leaders in publishing, training, and entertainment. By referral, by recommendation, by reputation.",
+};
+
+const featuredAward = {
+  figure: "Award winning.",
+  label: "Winner: Best Family Film",
+  note: "As a WGA screenwriter.",
+};
 ---
 
 <section id="track" class="section fade-in">
   <div class="wrap">
-    <div style="display:flex; align-items:center; gap:0.85rem; margin-bottom:2.5rem;">
-      <span class="eyebrow">Platte's Unmatched Track Record</span>
-      <span class="rule-blue" style="flex:1; opacity:0.4;"></span>
+    <div class="section-head" style="margin-bottom:2.5rem;">
+      <span class="eyebrow" style="display:block; margin-bottom:1rem;">Proof</span>
+      <h2 class="h2">Platte's <span class="display-italic">unmatched</span> experience.</h2>
     </div>
-    <div class="stat-grid">
-      {stats.map((s) => (
-        <div class="card stat" >
-          <p class="stat-fig display">{s.figure}</p>
-          <div>
-            <p class="stat-label">{s.label}</p>
-            <p class="stat-note">{s.note}</p>
-          </div>
+
+    <div class="track-bento">
+      <!-- Row 1: Lionsgate moment (photo left, stat right) -->
+      <figure class="photo-cell photo-cell--lionsgate">
+        <img class="photo-main" src="/images/platteredcarpet2.jpg" alt="Platte F. Clark on the red carpet at the Lionsgate premiere of The Best Christmas Pageant Ever" loading="lazy" />
+        <img class="photo-polaroid" src="/images/platteredcarpet.jpg" alt="" loading="lazy" />
+        <figcaption>
+          <span class="caption-label">From the Red Carpet</span>
+          <em>The Best Christmas Pageant Ever</em> · Lionsgate, 2024
+        </figcaption>
+      </figure>
+
+      <div class="card stat featured-stat featured-stat--lionsgate">
+        <p class="stat-fig display">{featuredLionsgate.figure}</p>
+        <div>
+          <p class="stat-label">{featuredLionsgate.label}</p>
+          <p class="stat-note">{featuredLionsgate.note}</p>
         </div>
-      ))}
+      </div>
+
+      <!-- Row 2: Tony Robbins (stat left, photo right) -->
+      <div class="card stat featured-stat featured-stat--curriculum">
+        <p class="stat-fig display">{featuredCurriculum.figure}</p>
+        <div>
+          <p class="stat-label">{featuredCurriculum.label}</p>
+          <p class="stat-note">{featuredCurriculum.note}</p>
+        </div>
+      </div>
+
+      <figure class="photo-cell photo-cell--tony">
+        <img class="photo-main" src="/images/PandT.png" alt="Platte F. Clark with Tony Robbins" loading="lazy" />
+        <figcaption>
+          <span class="caption-label">Learning From and Working with the Best</span>
+          With <em>Tony Robbins</em>
+        </figcaption>
+      </figure>
+
+      <!-- Row 3: Original novels (photo left, stat right) -->
+      <figure class="photo-cell photo-cell--books">
+        <img class="photo-main" src="/images/books.jpg" alt="Platte F. Clark's original novels" loading="lazy" />
+        <figcaption>
+          <span class="caption-label">From the Original Novels</span>
+          The <em>Bad Unicorn</em> trilogy
+        </figcaption>
+      </figure>
+
+      <div class="card stat featured-stat featured-stat--copies">
+        <p class="stat-fig display">{featuredCopies.figure}</p>
+        <div>
+          <p class="stat-label">{featuredCopies.label}</p>
+          <p class="stat-note">{featuredCopies.note}</p>
+        </div>
+      </div>
+
+      <!-- Row 4: Bestseller credentials (stat left, photo right) -->
+      <div class="card stat featured-stat featured-stat--bestseller">
+        <p class="stat-fig display display-italic">{featuredBestseller.figure}</p>
+        <div>
+          <p class="stat-label">{featuredBestseller.label}</p>
+          <p class="stat-note">{featuredBestseller.note}</p>
+        </div>
+      </div>
+
+      <figure class="photo-cell photo-cell--jay">
+        <img class="photo-main" src="/images/PlatteandJay.jpg" alt="Platte F. Clark with Jay Schwedelson" loading="lazy" />
+        <figcaption>
+          <span class="caption-label">Embracing the Hilarious and Profound</span>
+          With <em>Jay Schwedelson</em> · #1 Bestseller, 2026
+        </figcaption>
+      </figure>
+
+      <!-- Row 5: Trusted by elite practitioners (photo left with polaroid overlay, stat right) -->
+      <figure class="photo-cell photo-cell--trusted">
+        <img class="photo-main" src="/images/IMG_6985.jpeg" alt="Platte F. Clark with Jason Stacy" loading="lazy" />
+        <img class="photo-polaroid photo-polaroid--falk" src="/images/IMG_6977.jpeg" alt="Luke Falk holding The Mind Strength Playbook" loading="lazy" />
+        <figcaption>
+          <span class="caption-label">In the Field</span>
+          With <em>Jason Stacy</em>, Performance Coach, and <em>Luke Falk</em>, Former NFL Quarterback
+        </figcaption>
+      </figure>
+
+      <div class="card stat featured-stat featured-stat--trusted">
+        <p class="stat-fig display display-italic">{featuredTrusted.figure}</p>
+        <div>
+          <p class="stat-label">{featuredTrusted.label}</p>
+          <p class="stat-note">{featuredTrusted.note}</p>
+        </div>
+      </div>
+
+      <!-- Row 6: Award winning (stat left, photo right) -->
+      <div class="card stat featured-stat featured-stat--award">
+        <p class="stat-fig display display-italic">{featuredAward.figure}</p>
+        <div>
+          <p class="stat-label">{featuredAward.label}</p>
+          <p class="stat-note">{featuredAward.note}</p>
+        </div>
+      </div>
+
+      <figure class="photo-cell photo-cell--dallas">
+        <img class="photo-main" src="/images/IMG_9192.jpeg" alt="Platte F. Clark with Dallas Jenkins" loading="lazy" />
+        <figcaption>
+          <span class="caption-label">Collaborating with Creative Geniuses</span>
+          With <em>Dallas Jenkins</em> · Director, writer, and producer
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <style>
-  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .track-bento {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    gap: 1rem;
+  }
+
+  /* ── Photo cells (shared) ─────────────────────── */
+  .photo-cell {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    border: 1px solid var(--color-rule);
+    background: #15171f;
+  }
+  .photo-main {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.04) saturate(0.96);
+  }
+  .photo-cell::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(15, 18, 27, 0.78) 100%);
+    pointer-events: none;
+  }
+  .photo-cell figcaption {
+    position: absolute;
+    bottom: 1.3rem; left: 1.4rem;
+    color: #f4f0e6;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 30;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    max-width: 65%;
+    z-index: 3;
+  }
+  .photo-cell figcaption em { font-style: italic; }
+  .photo-cell figcaption .caption-label {
+    display: block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(244, 240, 230, 0.85);
+    margin-bottom: 0.45rem;
+  }
+
+  /* ── Polaroid overlay (shared) ────────────────── */
+  .photo-polaroid {
+    position: absolute;
+    bottom: 1.4rem; right: 1.2rem;
+    width: 38%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 30%;
+    padding: 0.45rem 0.45rem 1.1rem;
+    background: #f8f4ec;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 18px 32px -10px rgba(0, 0, 0, 0.55);
+    transform: rotate(4deg);
+    transform-origin: center center;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 2;
+  }
+  .photo-cell:hover .photo-polaroid { transform: rotate(-1.5deg) translateY(-4px); }
+  .photo-polaroid--falk {
+    width: 34%;
+    object-position: center 35%;
+    transform: rotate(-5deg);
+    top: 1.4rem; bottom: auto; right: 1.2rem;
+  }
+  .photo-cell--trusted:hover .photo-polaroid--falk { transform: rotate(1deg) translateY(-4px); }
+
+  /* ── Row 1: Lionsgate ─────────────────────────── */
+  .photo-cell--lionsgate { grid-column: 1; grid-row: 1; aspect-ratio: 4 / 5; }
+  .photo-cell--lionsgate .photo-main { object-position: center 30%; }
+  .photo-cell--lionsgate figcaption { max-width: 52%; }
+  .featured-stat--lionsgate { grid-column: 2; grid-row: 1; }
+
+  /* ── Row 2: Tony ──────────────────────────────── */
+  .photo-cell--tony { grid-column: 2; grid-row: 2; aspect-ratio: 1 / 1; }
+  .photo-cell--tony .photo-main { object-position: center center; }
+  .featured-stat--curriculum { grid-column: 1; grid-row: 2; }
+
+  /* ── Row 3: Books ↔ 250K copies ───────────────── */
+  .photo-cell--books { grid-column: 1; grid-row: 3; aspect-ratio: 3 / 2; }
+  .photo-cell--books .photo-main { object-position: center center; }
+  .featured-stat--copies { grid-column: 2; grid-row: 3; }
+
+  /* ── Row 4: Bestseller ↔ Jay ──────────────────── */
+  .featured-stat--bestseller { grid-column: 1; grid-row: 4; }
+  .photo-cell--jay { grid-column: 2; grid-row: 4; aspect-ratio: 1 / 1; }
+  .photo-cell--jay .photo-main { object-position: center 22%; }
+
+  /* ── Row 5: Trusted ───────────────────────────── */
+  .photo-cell--trusted { grid-column: 1; grid-row: 5; aspect-ratio: 4 / 5; }
+  .photo-cell--trusted .photo-main { object-position: center 25%; }
+  .featured-stat--trusted { grid-column: 2; grid-row: 5; }
+
+  /* ── Row 6: Award winning ─────────────────────── */
+  .featured-stat--award { grid-column: 1; grid-row: 6; }
+  .photo-cell--dallas { grid-column: 2; grid-row: 6; aspect-ratio: 4 / 5; }
+  .photo-cell--dallas .photo-main { object-position: center 22%; }
+
+  /* ── Featured stats (shared) ──────────────────── */
+  .featured-stat {
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .featured-stat .stat-fig {
+    font-size: clamp(4.5rem, 9vw, 7rem);
+    line-height: 0.95;
+  }
+  .featured-stat .stat-fig.display-italic {
+    font-size: clamp(3.6rem, 7.2vw, 5.6rem);
+    line-height: 1;
+  }
+  .featured-stat .stat-label { font-size: 0.78rem; margin-bottom: 0.6rem; }
+  .featured-stat .stat-note { font-size: 0.92rem; line-height: 1.5; }
+
   .stat { padding: 1.9rem 1.6rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; min-height: 180px; }
   .stat-fig { font-size: clamp(2.6rem, 4.5vw, 3.6rem); line-height: 1; color: var(--color-ink); }
   .stat-label { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-blue); margin: 0 0 0.4rem; }
   .stat-note { font-size: 0.82rem; color: var(--color-ink-mute); line-height: 1.4; margin: 0; }
-  @media (max-width: 860px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 460px) { .stat-grid { grid-template-columns: 1fr; } .stat { min-height: 0; } }
+
+  /* ── Responsive ───────────────────────────────── */
+  @media (max-width: 860px) {
+    .track-bento { grid-template-columns: 1fr; }
+    .photo-cell--lionsgate, .photo-cell--tony, .photo-cell--books,
+    .photo-cell--jay, .photo-cell--trusted, .photo-cell--dallas,
+    .featured-stat--lionsgate, .featured-stat--curriculum,
+    .featured-stat--copies, .featured-stat--bestseller,
+    .featured-stat--trusted, .featured-stat--award { grid-column: 1; grid-row: auto; }
+    .photo-cell--tony { aspect-ratio: 4 / 3; }
+    .photo-cell--books { aspect-ratio: 3 / 2; }
+    .photo-cell--jay { aspect-ratio: 4 / 3; }
+  }
+  @media (max-width: 460px) {
+    .photo-polaroid { width: 44%; bottom: 1rem; right: 0.9rem; }
+    .photo-polaroid--falk { width: 40%; top: 1rem; bottom: auto; }
+    .photo-cell figcaption { font-size: 0.85rem; max-width: 65%; }
+  }
 </style>
