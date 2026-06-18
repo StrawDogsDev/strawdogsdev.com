@@ -298,6 +298,20 @@ const featuredAward = {
     .photo-cell--tony { aspect-ratio: 4 / 3; }
     .photo-cell--books { aspect-ratio: 3 / 2; }
     .photo-cell--jay { aspect-ratio: 4 / 3; }
+
+    /* Photo always leads its stat on mobile */
+    .photo-cell--lionsgate    { order: 1; }
+    .featured-stat--lionsgate { order: 2; }
+    .photo-cell--tony         { order: 3; }
+    .featured-stat--curriculum{ order: 4; }
+    .photo-cell--books        { order: 5; }
+    .featured-stat--copies    { order: 6; }
+    .photo-cell--jay          { order: 7; }
+    .featured-stat--bestseller{ order: 8; }
+    .photo-cell--trusted      { order: 9; }
+    .featured-stat--trusted   { order: 10; }
+    .photo-cell--dallas       { order: 11; }
+    .featured-stat--award     { order: 12; }
   }
   @media (max-width: 460px) {
     .photo-polaroid { width: 44%; bottom: 1rem; right: 0.9rem; }
