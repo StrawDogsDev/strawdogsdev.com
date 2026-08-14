@@ -4,13 +4,31 @@
 const books = [
   { cover: "unconscious-bias", cat: "FranklinCovey", title: "The Leader's Guide to Unconscious Bias", who: "Pamela Fuller · Mark Murphy · Anne Chow", note: "Former CEO, AT&T Business · Wall Street Journal Bestseller" },
   { cover: "get-better", cat: "FranklinCovey", title: "Get Better", who: "Todd Davis", note: "Chief People Officer, FranklinCovey · Fifteen practices for relationships at work" },
+  { cover: "everyone-deserves", cat: "FranklinCovey", title: "Everyone Deserves a Great Manager", who: "Scott Miller · Todd Davis · Victoria Roos Olsson", note: "The six critical practices for leading a team" },
   { cover: "master-mentors", cat: "FranklinCovey", title: "Master Mentors, Vols. 1 & 2", who: "Scott Jeffrey Miller", note: "Sixty transformative insights from leading minds" },
   { cover: "leading-loyalty", cat: "FranklinCovey", title: "Leading Loyalty", who: "Sandy Rogers · Leena Rinne · Shawn Moon", note: "Cracking the code to customer devotion" },
+  { cover: "management-mess", cat: "FranklinCovey", title: "Management Mess to Leadership Success", who: "Scott Jeffrey Miller", note: "Thirty challenges to become the leader you would follow" },
+  { cover: "marketing-mess", cat: "FranklinCovey", title: "Marketing Mess to Brand Success", who: "Scott Jeffrey Miller", note: "Thirty challenges to transform your organization's brand" },
+  { cover: "strikingly-different", cat: "FranklinCovey", title: "Strikingly Different Selling", who: "Merrill · Savage · Illig · Colosimo", note: "Six vital skills to stand out and sell more" },
+  { cover: "who-rocked", cat: "FranklinCovey", title: "Who Rocked the Boat?", who: "Curtis Bateman", note: "A story about navigating the inevitability of change" },
+  { cover: "change", cat: "FranklinCovey", title: "Change", who: "Bateman · Pleshette · Cindrich · Phillips", note: "How to turn uncertainty into opportunity" },
+  { cover: "ultimate-mentorship", cat: "HarperCollins Leadership", title: "The Ultimate Guide to Great Mentorship", who: "Scott Jeffrey Miller", note: "Thirteen roles to making a true impact" },
+  { cover: "career-on-course", cat: "Career", title: "Career on Course", who: "Scott Jeffrey Miller", note: "Ten strategies to take your career from accidental to intentional" },
+  { cover: "parenting-wrong-turns", cat: "Family", title: "Parenting: Wrong Turns, Right Lessons", who: "Scott Jeffrey Miller & Thatcher Ford Miller", note: "Thirty insights to build lifelong influence with your children" },
+  { cover: "entrepreneurs-paradox", cat: "Startups", title: "The Entrepreneur's Paradox", who: "Curtis Morley", note: "How to overcome the sixteen pitfalls of the startup journey" },
+  { cover: "deliver", cat: "Leadership", title: "Deliver", who: "Russ Hill · Jared Jones · Tanner Corbridge", note: "Why some leaders get results and most don't" },
+  { cover: "hidden-strengths", cat: "Personal Growth", title: "Find Your Hidden Strengths", who: "Matthew E. Poll", note: "The four archetypes for success and personal growth" },
+  { cover: "hidden-value", cat: "Learning & Development", title: "Hidden Value", who: "Dr. Keith Keating", note: "How to reveal the impact of organizational learning" },
   { cover: "loose-cannons", cat: "Memoir", title: "Loose Cannons", who: "Diana Cannon Ragsdale", note: "A literary family memoir" },
   { cover: "mind-strength", cat: "Sports · Mental Performance", title: "The Mind Strength Playbook", who: "Luke Falk", note: "Former NFL Quarterback · Mental-Strength Coach" },
   { cover: "stupider-people", cat: "#1 Bestseller · 2026", title: "Stupider People Have Done It", who: "Jay Schwedelson", note: "Marketing truths, career moves, and life advice for doers" },
-  { cover: "pressure-code", cat: "Forthcoming · 2026", title: "The Pressure Code", who: "Jason Stacy", note: "Performance coach to Aryna Sabalenka and the WTA tour" },
   { cover: "life-is-luck", cat: "Memoir", title: "Life is Luck", who: "John Morgan", note: "Founder, Morgan & Morgan · America's largest plaintiffs' firm" },
+  { cover: "line-maker", cat: "2026", title: "The Line Maker", who: "Brett Armstrong", note: "Live intentionally. No excuses." },
+  { cover: "pressure-code", cat: "Forthcoming · 2026", title: "The Pressure Code", who: "Jason Stacy", note: "Performance coach to Aryna Sabalenka and the WTA tour" },
+  { cover: "stay-dangerous", cat: "In Development", title: "Stay Dangerous", who: "Ara Suppiah, M.D.", note: "Defying a world that wants to tame you" },
+  { cover: "daymakers", cat: "Forthcoming · 2026", title: "Daymakers", who: "Jay O'Brien & Jeff Jackel", note: "Co-founders, Client Giant" },
+  { cover: "carbon-based-living", cat: "Forthcoming · 2026", title: "Carbon-Based Living", who: "Scott Alan Fossler", note: "Unlocking the science of human potential" },
+  { cover: "inherited-machine", cat: "Forthcoming · 2026", title: "The Inherited Machine", who: "Dr. Greg Morris", note: "A human OS for leadership and collaboration" },
 ];
 ---
 
@@ -18,7 +36,7 @@ const books = [
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow" style="display:block; margin-bottom:1rem;">Selected Work</span>
-      <h2 class="h2" style="margin-bottom:1.5rem;">Books we've <span class="display-italic">built.</span></h2>
+      <h2 class="h2" style="margin-bottom:1.5rem;">Books we've helped <span class="display-italic">build.</span></h2>
       <p class="lede" style="font-size:clamp(1.05rem,1.7vw,1.3rem);">
         Over thirty trade nonfiction titles across leadership, sales, marketing, sports performance,
         behavioral change, and memoir.
@@ -52,16 +70,6 @@ const books = [
       </div>
     </div>
 
-    <p class="other-work">
-      <strong>Other recent and ongoing work</strong> includes <em>Automating Thoughtfulness</em>
-      (Jay O'Brien & Jeff Jackel, co-founders of Client Giant); <em>Management Mess to Leadership
-      Success</em>, <em>Marketing Mess to Brand Success</em>, <em>Career on Course</em>, and
-      <em>Parenting Wrong Turns, Right Lessons</em> (Scott Jeffrey Miller, FranklinCovey);
-      <em>Who Rocked the Boat</em> and <em>Change</em> (Curtis Bateman, FranklinCovey);
-      <em>The Entrepreneur's Paradox</em> (Curtis Morley); <em>Deliver</em> (Hill, Jones, Corbridge);
-      <em>The Ultimate Guide to Great Mentorship</em> (Scott Jeffrey Miller); <em>Hidden Value</em>
-      (Dr. Keith Keating); and additional 2026 titles in development.
-    </p>
   </div>
 </section>
 
@@ -85,7 +93,7 @@ const books = [
     box-shadow: 0 4px 12px -8px rgba(20, 30, 60, 0.4);
   }
   .jacket img {
-    height: 12rem; width: auto; display: block; border-radius: 2px;
+    height: 10.2rem; width: auto; display: block; border-radius: 2px;
     border: 1px solid rgba(26, 35, 50, 0.14);
   }
   /* the lit book — set by script, and by hover/focus */
@@ -103,9 +111,6 @@ const books = [
   .read-who { font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 30; color: var(--color-ink); font-size: 0.95rem; margin: 0 0 0.55rem; }
   .read-note { font-size: 0.82rem; color: var(--color-ink-mute); line-height: 1.5; margin: 0; }
 
-  .other-work { margin: 2.5rem 0 0; padding-top: 2rem; border-top: 1px solid var(--color-rule); font-size: 0.9rem; line-height: 1.7; color: var(--color-ink-mute); }
-  .other-work strong { color: var(--color-ink-soft); }
-  .other-work em { font-style: italic; }
 
   @media (max-width: 980px) {
     .shelf-unit { grid-template-columns: 1fr; gap: 1.9rem; }
