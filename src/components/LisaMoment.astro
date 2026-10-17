@@ -1,0 +1,95 @@
+---
+// The Method, shown by its result. The six stages live in full at
+// theconvictionengine.com, so this section carries the proof instead:
+// Lisa Nichols introducing Platte on stage, in her words.
+---
+
+<section id="method" class="section fade-in">
+  <div class="wrap">
+    <figure class="lm">
+      <div class="lm-photo">
+        <div class="lm-frame">
+          <picture>
+            <source srcset="/images/lisa-platte-houston.webp" type="image/webp" />
+            <img
+              src="/images/lisa-platte-houston.jpg"
+              alt="Lisa Nichols on stage with her hand on Platte Clark's shoulder at Speak & Write in Houston"
+              width="1085" height="1355" loading="lazy" decoding="async"
+            />
+          </picture>
+        </div>
+        <span class="lm-credit">Speak &amp; Write &middot; Houston &middot; 2026</span>
+      </div>
+
+      <div class="lm-copy">
+        <span class="eyebrow">The Method</span>
+        <blockquote class="lm-quote">
+          &ldquo;We had a writer who was good. But we needed a writer who was <span class="display-italic">phenomenal.</span>&rdquo;
+        </blockquote>
+        <figcaption class="lm-cite">
+          Lisa Nichols
+          <span>New York Times Bestselling Author</span>
+        </figcaption>
+        <p class="lm-method">
+          Every book we build runs on the Conviction Engine&trade;: the
+          stages that turn what an author knows into what a reader does.
+        </p>
+        <a class="link-arrow" href="https://theconvictionengine.com" target="_blank" rel="noopener">See how the engine works ↗</a>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .lm {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: center;
+  }
+  .lm-frame { overflow: hidden; border: 1px solid var(--color-rule); }
+  .lm-frame img {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 28%;
+  }
+  .lm-credit {
+    display: block; margin-top: 0.8rem;
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+  }
+  .lm-copy .eyebrow { display: block; }
+  .lm-quote {
+    margin: 1.4rem 0 1.6rem;
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.14;
+    color: var(--color-ink); text-wrap: balance;
+  }
+  .lm-cite {
+    font-family: var(--font-body); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink);
+  }
+  .lm-cite span { display: block; margin-top: 0.35rem; font-weight: 500; color: var(--color-ink-mute); }
+  .lm-method {
+    margin: 2.2rem 0 1.1rem; padding-top: 1.6rem; max-width: 40ch;
+    border-top: 1px solid var(--color-rule);
+    font-size: 1rem; line-height: 1.65; color: var(--color-ink-soft);
+  }
+
+  /* The photograph settles out of a slight zoom as it scrolls into view. */
+  @keyframes lmSettle { from { transform: scale(1.12); } to { transform: scale(1); } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .lm-frame img {
+        animation: lmSettle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+      }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .lm { grid-template-columns: 1fr; gap: 2rem; }
+    .lm-frame img { aspect-ratio: 4 / 3; object-position: 50% 22%; }
+  }
+</style>
