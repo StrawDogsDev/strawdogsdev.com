@@ -1,0 +1,91 @@
+---
+// The Method, from the author's side. Mirrors LisaMoment (copy left, photo
+// right) so the two proofs face each other. Luke's words, from the written
+// testimonial he sent Platte (January 2026), trimmed.
+---
+
+<section class="section fade-in">
+  <div class="wrap">
+    <figure class="lk">
+      <div class="lk-copy">
+        <span class="eyebrow">The Result</span>
+        <blockquote class="lk-quote">
+          &ldquo;Going in, I had no idea what the structure, rhythm, or sequencing
+          should look like. Platte laid out a framework that let the book flow.
+          I&rsquo;ve received countless comments on how
+          <span class="display-italic">well-structured</span> it is, and
+          that&rsquo;s entirely thanks to him.&rdquo;
+        </blockquote>
+        <figcaption class="lk-cite">
+          Luke Falk
+          <span>Former NFL Quarterback &middot; <em>The Mind Strength Playbook</em></span>
+        </figcaption>
+      </div>
+
+      <div class="lk-photo">
+        <div class="lk-frame">
+          <picture>
+            <source srcset="/images/luke-falk-platte.webp" type="image/webp" />
+            <img
+              src="/images/luke-falk-platte.jpg"
+              alt="Luke Falk holding his book, The Mind Strength Playbook, beside Platte Clark"
+              width="1200" height="1600" loading="lazy" decoding="async"
+            />
+          </picture>
+        </div>
+        <span class="lk-credit">Luke Falk and Platte &middot; The Mind Strength Playbook</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .lk {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: center;
+  }
+  .lk-frame { overflow: hidden; border: 1px solid var(--color-rule); }
+  .lk-frame img {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
+  }
+  .lk-credit {
+    display: block; margin-top: 0.8rem;
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+  }
+  .lk-copy .eyebrow { display: block; }
+  .lk-quote {
+    margin: 1.4rem 0 1.6rem;
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.2;
+    color: var(--color-ink); text-wrap: balance;
+  }
+  .lk-cite {
+    font-family: var(--font-body); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink);
+  }
+  .lk-cite span { display: block; margin-top: 0.35rem; font-weight: 500; color: var(--color-ink-mute); }
+  .lk-cite em { font-style: normal; }
+
+  /* The photograph settles out of a slight zoom as it scrolls into view. */
+  @keyframes lkSettle { from { transform: scale(1.12); } to { transform: scale(1); } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .lk-frame img {
+        animation: lkSettle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+      }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .lk { grid-template-columns: 1fr; gap: 2rem; }
+    .lk-photo { order: -1; }
+    .lk-frame img { aspect-ratio: 4 / 3; object-position: 50% 28%; }
+  }
+</style>
