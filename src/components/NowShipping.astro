@@ -1,6 +1,7 @@
 ---
 // "Now Shipping" callout band — features the most current trade title.
 // Uses the inverted navy-card treatment from the brochure for visual distinction.
+// Carries Jay's own line so the result proof has a client voice, not just ours.
 ---
 
 <section id="now-shipping" class="section fade-in">
@@ -37,6 +38,14 @@
             funny, generous, and structured so a reader can run with it the next morning.
           </p>
         </div>
+
+        <figure class="ns-quote">
+          <blockquote>
+            &ldquo;Platte really nailed it, which is no small feat &rsquo;cause I handed him
+            <span class="display-italic ns-italic">a bit of chaos</span>.&rdquo;
+          </blockquote>
+          <figcaption>Jay Schwedelson &middot; Park City launch, 2026</figcaption>
+        </figure>
 
         <div class="ns-cta-row">
           <img
@@ -144,6 +153,23 @@
   .ns-body { color: #cfccc2; line-height: 1.62; font-size: 0.95rem; }
   .ns-body p { margin: 0 0 0.85rem; }
   .ns-body p:last-child { margin-bottom: 0; }
+
+  .ns-quote {
+    margin: 1.7rem 0 0;
+    padding-left: 1.1rem;
+    border-left: 2px solid rgba(138, 160, 255, 0.55);
+  }
+  .ns-quote blockquote {
+    margin: 0;
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.3;
+    color: #f4f1ea; text-wrap: balance;
+  }
+  .ns-quote figcaption {
+    margin-top: 0.55rem;
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: #b9b6ad;
+  }
 
   .ns-cta-row {
     display: grid;
