@@ -1,0 +1,91 @@
+---
+// The Method, from the coach's side. Follows LukeMoment and flips it (photo
+// left, copy right) so the three proofs don't stack the same way. Jason's
+// words, from the messages he sent Platte after the manuscript (2026), trimmed.
+---
+
+<section class="section fade-in">
+  <div class="wrap">
+    <figure class="js">
+      <div class="js-photo">
+        <div class="js-frame">
+          <picture>
+            <source srcset="/images/jason-platte.webp" type="image/webp" />
+            <img
+              src="/images/jason-platte.jpg"
+              alt="Platte F. Clark with Jason Stacy"
+              width="1200" height="1500" loading="lazy" decoding="async"
+            />
+          </picture>
+        </div>
+        <span class="js-credit">Jason Stacy and Platte &middot; The Pressure Code</span>
+      </div>
+
+      <div class="js-copy">
+        <span class="eyebrow">The Result</span>
+        <blockquote class="js-quote">
+          &ldquo;I didn&rsquo;t want some academic quoting random research to fit a
+          story-type book. Platte helped me find the balance between
+          <span class="display-italic">structure and story</span>&mdash;a flow of me
+          that could still connect with the reader, even without me standing there
+          talking with them. He didn&rsquo;t just help with my ideas. He created some
+          that fit perfectly into what I do.&rdquo;
+        </blockquote>
+        <figcaption class="js-cite">
+          Jason Stacy
+          <span>Performance Coach to Aryna Sabalenka &middot; <em>The Pressure Code</em> &middot; Matt Holt Books, 2026</span>
+        </figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .js {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: center;
+  }
+  .js-frame { overflow: hidden; border: 1px solid var(--color-rule); }
+  .js-frame img {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
+  }
+  .js-credit {
+    display: block; margin-top: 0.8rem;
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+  }
+  .js-copy .eyebrow { display: block; }
+  .js-quote {
+    margin: 1.4rem 0 1.6rem;
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.2;
+    color: var(--color-ink); text-wrap: balance;
+  }
+  .js-cite {
+    font-family: var(--font-body); font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink);
+  }
+  .js-cite span { display: block; margin-top: 0.35rem; font-weight: 500; color: var(--color-ink-mute); }
+  .js-cite em { font-style: normal; }
+
+  /* The photograph settles out of a slight zoom as it scrolls into view. */
+  @keyframes jsSettle { from { transform: scale(1.12); } to { transform: scale(1); } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .js-frame img {
+        animation: jsSettle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+      }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .js { grid-template-columns: 1fr; gap: 2rem; }
+    .js-frame img { aspect-ratio: 4 / 3; object-position: 50% 28%; }
+  }
+</style>
