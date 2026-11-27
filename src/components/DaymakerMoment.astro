@@ -1,0 +1,183 @@
+---
+// The newest result, told the way it arrived: a text from the authors.
+// Sits above Jay's band. Platte (2026 studio session, white sweep, extra
+// headroom added above him) points up at the thread; the white sweep is cut to transparent so he stands on the
+// page rather than in a box. The three rankings sit beside it
+// as a plain ledger, read from the Amazon category pages at launch.
+const ranks = [
+  { cat: "Marketing", list: "New Releases" },
+  { cat: "Sales & Selling", list: "New Releases" },
+  { cat: "Customer Relations", list: "Best Sellers" },
+];
+---
+
+<section id="daymaker" class="section fade-in">
+  <div class="wrap">
+    <figure class="dm">
+      <div class="dm-stage">
+        <img
+            class="dm-photo"
+            src="/images/platte-number-one.webp"
+            alt="Platte F. Clark smiling and holding up one finger"
+            width="1400" height="1447" loading="lazy" decoding="async"
+          />
+
+        <div class="dm-thread" role="group" aria-label="Text message from the authors">
+          <p class="dm-from">Jeff Jackel &middot; co-author</p>
+          <p class="dm-bubble dm-in">Platte! We did it!! We&rsquo;re #1 in all three categories!!!</p>
+          <p class="dm-bubble dm-out">That&rsquo;s awesome! Congrats!!</p>
+        </div>
+      </div>
+
+      <div class="dm-copy">
+        <div class="dm-meta">
+          <span class="dm-pulse" aria-hidden="true"></span>
+          <span class="eyebrow">Just In &middot; #1 on Amazon</span>
+        </div>
+
+        <h2 class="h2 dm-title">
+          Number one, <span class="display-italic">three times over.</span>
+        </h2>
+
+        <p class="dm-body">
+          Jay O&rsquo;Brien and Jeff Jackel built Client Giant on the conviction that
+          caring for customers is a profit strategy, not a soft skill. The book had to
+          make that case to readers who measure everything. In launch week it took the
+          top spot in three Amazon categories at once.
+        </p>
+
+        <ol class="dm-ranks" role="list">
+          {ranks.map((r) => (
+            <li>
+              <span class="dm-no">#1</span>
+              <span class="dm-cat">{r.cat}</span>
+              <span class="dm-list">{r.list}</span>
+            </li>
+          ))}
+        </ol>
+
+        <div class="dm-book">
+          <img
+            class="dm-cover"
+            src="/images/covers/daymakers.webp"
+            alt="The Daymaker Difference book cover"
+            width="307" height="440" loading="lazy" decoding="async"
+          />
+          <div>
+            <p class="dm-book-title">The Daymaker Difference</p>
+            <p class="dm-book-sub">The Surprisingly Profitable Practice of Caring</p>
+            <p class="label dm-book-who">Jay O&rsquo;Brien &amp; Jeff Jackel &middot; Co-founders, Client Giant</p>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .dm {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  /* ── The stage: Platte and the thread ── */
+  .dm-stage { position: relative; }
+  .dm-photo {
+    display: block; width: 100%; height: auto;
+    border-bottom: 1px solid var(--color-rule-strong);
+  }
+
+  .dm-thread {
+    position: absolute; z-index: 2;
+    top: 4%; right: 2%; width: min(52%, 18.5rem);
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .dm-from {
+    margin: 0 0 0.1rem 0.9rem;
+    font-family: var(--font-body); font-size: 0.58rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+  }
+  .dm-bubble {
+    margin: 0; padding: 0.6rem 0.9rem;
+    font-family: var(--font-body); font-size: clamp(0.78rem, 1.15vw, 0.92rem); line-height: 1.35;
+    border-radius: 1.1rem; max-width: 92%;
+    box-shadow: 0 10px 24px -16px rgba(20, 30, 60, 0.45);
+  }
+  .dm-in {
+    align-self: flex-start;
+    background: #e7e3da; color: var(--color-ink);
+    border-bottom-left-radius: 0.3rem;
+  }
+  .dm-out {
+    align-self: flex-end;
+    background: var(--color-blue); color: #fff;
+    border-bottom-right-radius: 0.3rem;
+  }
+
+  /* The thread arrives once the section is in view. */
+  @keyframes dmPop {
+    from { opacity: 0; transform: translateY(8px) scale(0.96); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .dm-from, .dm-bubble { opacity: 0; }
+    .visible .dm-from { animation: dmPop 0.45s ease-out 0.5s both; }
+    .visible .dm-in   { animation: dmPop 0.5s cubic-bezier(.2,.9,.3,1.2) 0.7s both; transform-origin: bottom left; }
+    .visible .dm-out  { animation: dmPop 0.5s cubic-bezier(.2,.9,.3,1.2) 1.5s both; transform-origin: bottom right; }
+  }
+
+  /* ── The copy ── */
+  .dm-meta { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.3rem; }
+  .dm-pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--color-blue);
+    animation: dmPulse 2.2s ease-out infinite;
+  }
+  @keyframes dmPulse {
+    0% { box-shadow: 0 0 0 0 rgba(36, 56, 212, 0.45); }
+    70% { box-shadow: 0 0 0 12px rgba(36, 56, 212, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(36, 56, 212, 0); }
+  }
+  .dm-title { margin-bottom: 1.3rem; text-wrap: balance; }
+  .dm-body { margin: 0 0 1.8rem; max-width: 44ch; font-size: 1rem; line-height: 1.65; color: var(--color-ink-soft); }
+
+  .dm-ranks { list-style: none; margin: 0 0 2rem; padding: 0; border-top: 1px solid var(--color-rule); }
+  .dm-ranks li {
+    display: grid; grid-template-columns: 3.2rem 1fr auto; align-items: baseline; gap: 0.8rem;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--color-rule);
+  }
+  .dm-no {
+    font-family: var(--font-display); font-style: italic; font-weight: 500;
+    font-variation-settings: "opsz" 144; font-size: 1.7rem; line-height: 1;
+    color: var(--color-blue); letter-spacing: -0.02em;
+  }
+  .dm-cat { font-family: var(--font-display); font-size: 1.2rem; color: var(--color-ink); }
+  .dm-list {
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ink-mute);
+  }
+
+  .dm-book { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center; }
+  .dm-cover {
+    width: 76px; height: auto; display: block; border-radius: 2px;
+    border: 1px solid var(--color-rule);
+    box-shadow: 0 14px 28px -16px rgba(20, 30, 60, 0.55);
+  }
+  .dm-book-title { margin: 0 0 0.2rem; font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; color: var(--color-ink); }
+  .dm-book-sub { margin: 0 0 0.5rem; font-family: var(--font-display); font-style: italic; font-variation-settings: "opsz" 30; font-size: 0.95rem; color: var(--color-ink-soft); }
+  .dm-book-who { margin: 0; line-height: 1.6; }
+
+  @media (max-width: 860px) {
+    .dm { grid-template-columns: 1fr; gap: 2.2rem; }
+    .dm-thread { width: 58%; }
+  }
+  @media (max-width: 520px) {
+    .dm-thread { width: 64%; top: 0; gap: 0.3rem; }
+    .dm-bubble { padding: 0.45rem 0.7rem; font-size: 0.72rem; border-radius: 0.9rem; }
+    .dm-from { font-size: 0.52rem; }
+    .dm-ranks li { grid-template-columns: 2.6rem 1fr; }
+    .dm-list { grid-column: 2; margin-top: -0.4rem; }
+  }
+</style>
