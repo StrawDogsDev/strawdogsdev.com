@@ -67,8 +67,8 @@
   .section-flush { padding: 5rem 0; }
   /* Bands: every other block sits on the deeper paper so the page has a rhythm.
      Where tint meets paper the colour change is the edge, so the hairline goes. */
-  .section.tint { background: var(--color-paper-tint); }
-  .section.tint, .section.tint + .section { border-top-color: transparent; }
+  .tint { background: var(--color-paper-tint); }
+  .section.tint, .tint + .section { border-top-color: transparent; }
   .section-head { max-width: 54ch; margin-bottom: 3.25rem; }
   @media (max-width: 720px) { .section, .section-flush { padding: 3.5rem 0; } }
 
