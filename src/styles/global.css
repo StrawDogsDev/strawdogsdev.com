@@ -7,6 +7,8 @@
   --color-paper-soft: #f3efe6;
   --color-paper-card: #fdfcf8;
   --color-paper-hi: #ffffff;
+  /* the original paper, kept as the deeper band in the alternation */
+  --color-paper-tint: #f4f0e6;
 
   --color-ink: #1a1d26;
   --color-ink-soft: #45474f;
@@ -63,6 +65,10 @@
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
   .section { border-top: 1px solid var(--color-rule); padding: 5rem 0; }
   .section-flush { padding: 5rem 0; }
+  /* Bands: every other block sits on the deeper paper so the page has a rhythm.
+     Where tint meets paper the colour change is the edge, so the hairline goes. */
+  .tint { background: var(--color-paper-tint); }
+  .section.tint, .tint + .section { border-top-color: transparent; }
   .section-head { max-width: 54ch; margin-bottom: 3.25rem; }
   @media (max-width: 720px) { .section, .section-flush { padding: 3.5rem 0; } }
 
