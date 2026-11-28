@@ -1,38 +1,416 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import LisaMoment from '../components/LisaMoment.astro';
-import LukeMoment from '../components/LukeMoment.astro';
-import JasonMoment from '../components/JasonMoment.astro';
-import DaymakerMoment from '../components/DaymakerMoment.astro';
-import NowShipping from '../components/NowShipping.astro';
-import Stats from '../components/Stats.astro';
-import ProofShelf from '../components/ProofShelf.astro';
-import WhatWeBuild from '../components/WhatWeBuild.astro';
-import Team from '../components/Team.astro';
-import PullQuote from '../components/PullQuote.astro';
-import Engage from '../components/Engage.astro';
-import Footer from '../components/Footer.astro';
+import CoverLayout from '../layouts/CoverLayout.astro';
 ---
 
-<BaseLayout title="Straw Dogs Development—Boutique Ghostwriting & Book Architecture">
-  <Nav cross={{ label: "For Partners", href: "/partners/" }} />
-  <main>
-    <Hero />
-    <DaymakerMoment />
-    <NowShipping />
-    <LisaMoment />
-    <JasonMoment />
-    <LukeMoment />
-    <WhatWeBuild />
-    <Team />
-    <Stats />
-    <PullQuote image="/images/mountain.jpg" cite="Platte F. Clark">
-      &ldquo;<span class="display-italic">Facts inform.</span> Meaning transforms. The gap between the two is closeable not by talent, but by <span class="display-italic">architecture.</span>&rdquo;
-    </PullQuote>
-    <ProofShelf />
-    <Engage />
-  </main>
-  <Footer />
-</BaseLayout>
+<CoverLayout title="Straw Dogs Development · Books for speakers, founders and experts">
+
+
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Straw Dogs Development home">
+      <img src="/images/dog-mark.png" alt="" width="363" height="238">
+      <span class="wordmark">Straw Dogs <span>Development</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#work">The Work</a>
+      <a href="#how">How We Work</a>
+      <a href="#team" class="hide-md">The Team</a>
+      <a href="/partners/" class="cross">For Partners →</a>
+    </div>
+    <a class="btn nav-cta" href="#engage">Start a project</a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mmenu" id="mmenu">
+    <a href="#work">The Work</a>
+    <a href="#how">How We Work</a>
+    <a href="#team">The Team</a>
+    <a href="/partners/">For Partners →</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============ 01 · THE COVER ============ -->
+<header class="cover" aria-labelledby="h1">
+  <p class="ghost-book" aria-hidden="true">Book</p>
+  <div class="wrap">
+    <p class="mast"><span>Straw Dogs Development <b>·</b> Books for speakers, founders and experts</span><span class="issue">American Fork, Utah · 2026</span></p>
+    <div class="cover-grid">
+      <div class="cover-copy">
+        <h1 id="h1">Your name goes on the cover. <em>Make it the book that moves people.</em></h1>
+        <p class="cover-sub">Straw Dogs builds books for speakers, founders and experts that move readers to act, fill speaking calendars, and open doors. Over thirty titles. The two people you meet are the two who write it.</p>
+        <div class="cover-ctas">
+          <a class="btn" href="#engage">Talk about your book <span class="arr" aria-hidden="true">→</span></a>
+          <a class="tlink" href="#work">See the books we’ve built ↓</a>
+        </div>
+      </div>
+      <div class="fan-wrap">
+        <div class="fan">
+          <img class="b1" src="/images/covers/life-is-luck.webp" alt="Life is Luck by John Morgan" width="320" height="460" loading="eager">
+          <img class="b2" src="/images/covers/stupider-people.webp" alt="Stupider People Have Done It by Jay Schwedelson" width="303" height="460" loading="eager">
+          <img class="f1" src="/images/covers/daymakers.webp" alt="The Daymaker Difference by Jay O’Brien and Jeff Jackel" width="307" height="441" loading="eager" fetchpriority="high">
+          <span class="fan-cap" aria-hidden="true">On the cover · 2026</span>
+        </div>
+      </div>
+      <ul class="lines" aria-label="In this issue">
+        <li><span class="cl-a">#1 on Amazon, three categories</span><span class="cl-b">The Daymaker Difference</span></li>
+        <li><span class="cl-a">Over thirty titles</span><span class="cl-b">Lisa Nichols · John Morgan · FranklinCovey</span></li>
+        <li><span class="cl-a">Page to screen</span><span class="cl-b">The Best Christmas Pageant Ever · Lionsgate, 2024</span></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 02 · COVER STORIES ============ -->
+<section class="section tint" id="stories" aria-label="Cover stories">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>02 · Cover stories</span><span>The Daymaker Difference · Stupider People Have Done It</span></div></div>
+  <div class="wrap">
+    <article class="spread">
+      <div class="dm-stage">
+        <img class="dm-photo" src="/images/platte-number-one.webp" alt="Platte F. Clark smiling and holding up one finger" width="1400" height="1447" loading="lazy" decoding="async">
+        <div class="thread" role="group" aria-label="Text message from the authors">
+          <p class="from">Jeff Jackel · co-author</p>
+          <p class="bubble in">Platte! We did it!! We’re #1 in all three categories!!!</p>
+          <p class="bubble out">That’s awesome! Congrats!!</p>
+        </div>
+      </div>
+      <div class="gutter" aria-hidden="true"></div>
+      <div class="dm-copy">
+        <p class="kicker rv"><span class="pulse" aria-hidden="true"></span>Cover story · #1 on Amazon</p>
+        <h2 class="h2 rv">Number one, <span class="turn">three times over.</span></h2>
+        <p class="dropcap">Jay O’Brien and Jeff Jackel built Client Giant on the conviction that caring for customers is a profit strategy, not a soft skill. The book had to make that case to readers who measure everything. In launch week it took the top spot in three Amazon categories at once.</p>
+        <ol class="ledger" aria-label="Amazon rankings at launch">
+          <li><span class="no">#1</span><span class="cat">Marketing</span><span class="lst">New Releases</span></li>
+          <li><span class="no">#1</span><span class="cat">Sales &amp; Selling</span><span class="lst">New Releases</span></li>
+          <li><span class="no">#1</span><span class="cat">Customer Relations</span><span class="lst">Best Sellers</span></li>
+        </ol>
+        <div class="bookline">
+          <img src="/images/covers/daymakers.webp" alt="The Daymaker Difference book cover" width="307" height="441" loading="lazy">
+          <div>
+            <p class="t">The Daymaker Difference</p>
+            <p class="s">The Surprisingly Profitable Practice of Caring</p>
+            <p class="w">Jay O’Brien &amp; Jeff Jackel · Co-founders, Client Giant</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="second">
+      <figure class="jay-photo">
+        <img src="/images/platte-jay.webp" alt="Platte F. Clark with Jay Schwedelson" width="900" height="1116" loading="lazy" decoding="async">
+        <figcaption>On location · Jay Schwedelson &amp; Platte F. Clark</figcaption>
+      </figure>
+      <div class="jay-copy">
+        <p class="kicker rv">Also in this issue · #1 Bestseller</p>
+        <h3 class="rv">Stupider People <span class="turn">Have Done It</span></h3>
+        <p class="who">Jay Schwedelson · <i>Stupider People Have Done It</i></p>
+        <p class="sub">Marketing truths, career moves, and life advice for doers.</p>
+        <p class="body">Schwedelson built one of the largest email-marketing voices on the internet without ever sounding like one. The book had to do the same on the page—direct, funny, generous, and structured so a reader can run with it the next morning.</p>
+        <div class="outnow">
+          <img src="/images/covers/stupider-people.webp" alt="Stupider People Have Done It book cover" width="303" height="460" loading="lazy">
+          <div><p class="l">Out Now · 2026</p><p class="n">Available wherever you buy books.</p></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 03 · IN THEIR WORDS (the reel) ============ -->
+<section class="section reel" id="words" aria-roledescription="carousel" aria-label="Client quotes">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>03 · In their words</span><span>Four authors, four books</span></div></div>
+  <div class="wrap">
+    <p class="kicker reel-head rv">In their words</p>
+    <div class="slides" id="slides" aria-live="off">
+      <figure class="slide is-active" id="q1" role="tabpanel" aria-roledescription="slide" aria-label="1 of 4: Lisa Nichols">
+        <p class="gname" aria-hidden="true">Lisa</p>
+        <figure class="polaroid">
+          <img src="/images/lisa-platte-houston.webp" alt="Lisa Nichols and Platte F. Clark on stage at Speak &amp; Write in Houston" width="1085" height="1355" loading="lazy">
+          <figcaption>Speak &amp; Write · Houston</figcaption>
+        </figure>
+        <blockquote>“One of the best‑kept secrets in the <em>highest demand</em>.”</blockquote>
+        <figcaption>
+          <img src="/images/covers/becoming-unforgettable.webp" alt="" width="307" height="460" loading="lazy">
+          <span><span class="nm">Lisa Nichols</span><span class="ln">Featured in The Secret and on Oprah</span></span>
+        </figcaption>
+      </figure>
+      <figure class="slide" id="q2" role="tabpanel" aria-roledescription="slide" aria-label="2 of 4: Jason Stacy">
+        <p class="gname" aria-hidden="true">Jason</p>
+        <blockquote>“Platte didn’t just help with my ideas. He <em>created some</em> that fit perfectly into what I do.”</blockquote>
+        <figcaption>
+          <img src="/images/covers/pressure-code.webp" alt="" width="309" height="460" loading="lazy">
+          <span><span class="nm">Jason Stacy</span><span class="ln">Performance coach to Aryna Sabalenka</span></span>
+        </figcaption>
+      </figure>
+      <figure class="slide" id="q3" role="tabpanel" aria-roledescription="slide" aria-label="3 of 4: Jay Schwedelson">
+        <p class="gname" aria-hidden="true">Jay</p>
+        <blockquote>“Platte really nailed it, which is no small feat ’cause I handed him <em>a bit of chaos</em>.”</blockquote>
+        <figcaption>
+          <img src="/images/covers/stupider-people.webp" alt="" width="303" height="460" loading="lazy">
+          <span><span class="nm">Jay Schwedelson</span><span class="ln">Stupider People Have Done It</span></span>
+        </figcaption>
+      </figure>
+      <figure class="slide" id="q4" role="tabpanel" aria-roledescription="slide" aria-label="4 of 4: Luke Falk">
+        <p class="gname" aria-hidden="true">Luke</p>
+        <blockquote>“If you’re looking to write a book, <em>call Platte</em>. He’ll show you how to elevate it that much more.”</blockquote>
+        <figcaption>
+          <img src="/images/covers/mind-strength.webp" alt="" width="307" height="460" loading="lazy">
+          <span><span class="nm">Luke Falk</span><span class="ln">Former NFL quarterback</span></span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="controls">
+      <div class="tabs" role="tablist" aria-label="Choose a quote">
+        <button class="tab" role="tab" id="t1" aria-controls="q1" aria-selected="true"><b>01</b>Lisa<span class="track"><span class="fill"></span></span></button>
+        <button class="tab" role="tab" id="t2" aria-controls="q2" aria-selected="false" tabindex="-1"><b>02</b>Jason<span class="track"><span class="fill"></span></span></button>
+        <button class="tab" role="tab" id="t3" aria-controls="q3" aria-selected="false" tabindex="-1"><b>03</b>Jay<span class="track"><span class="fill"></span></span></button>
+        <button class="tab" role="tab" id="t4" aria-controls="q4" aria-selected="false" tabindex="-1"><b>04</b>Luke<span class="track"><span class="fill"></span></span></button>
+      </div>
+      <button class="pause" type="button" id="pause" aria-pressed="false"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/></svg><span>Pause</span></button>
+    </div>
+    <p class="reel-cta"><a class="tlink" href="#engage">Talk about your book →</a></p>
+  </div>
+</section>
+
+<!-- ============ 04 · THE SHELF ============ -->
+<section class="section" id="work" aria-labelledby="shelf-h">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>04 · The shelf</span><span>Contents</span></div></div>
+  <div class="wrap">
+    <div class="shelf-head">
+      <p class="big-n" aria-hidden="true">33</p>
+      <div>
+        <p class="kicker rv">The shelf</p>
+        <h2 class="h2 rv" id="shelf-h">Books we’ve helped <span class="turn">build.</span></h2>
+        <p class="lede">Over thirty trade nonfiction titles across leadership, sales, marketing, sports performance, behavioral change, and memoir.</p>
+      </div>
+    </div>
+    <ul class="books" id="books">
+        <li class="book"><button type="button" class="book-btn" data-cat="#1 on Amazon in three categories · 2026" data-title="The Daymaker Difference" data-who="Jay O’Brien &amp; Jeff Jackel" data-note="Co-founders, Client Giant · The surprisingly profitable practice of caring"><img src="/images/covers/daymakers.webp" alt="The Daymaker Difference, Jay O’Brien &amp; Jeff Jackel" width="307" height="441" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="#1 Bestseller · 2026" data-title="Stupider People Have Done It" data-who="Jay Schwedelson" data-note="Marketing truths, career moves, and life advice for doers"><img src="/images/covers/stupider-people.webp" alt="Stupider People Have Done It, Jay Schwedelson" width="303" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Memoir" data-title="Life is Luck" data-who="John Morgan" data-note="Founder, Morgan &amp; Morgan · America’s largest plaintiffs’ firm"><img src="/images/covers/life-is-luck.webp" alt="Life is Luck, John Morgan" width="320" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Forthcoming · 2027" data-title="Becoming Unforgettable" data-who="Lisa Nichols" data-note="The seven principles of earned influence · Simon &amp; Schuster"><img src="/images/covers/becoming-unforgettable.webp" alt="Becoming Unforgettable, Lisa Nichols" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Forthcoming · 2026" data-title="The Pressure Code" data-who="Jason Stacy" data-note="Performance coach to Aryna Sabalenka and the WTA tour · Matt Holt Books"><img src="/images/covers/pressure-code.webp" alt="The Pressure Code, Jason Stacy" width="309" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Sports · Mental Performance" data-title="The Mind Strength Playbook" data-who="Luke Falk" data-note="Former NFL Quarterback · Mental-Strength Coach"><img src="/images/covers/mind-strength.webp" alt="The Mind Strength Playbook, Luke Falk" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="The Leader’s Guide to Unconscious Bias" data-who="Pamela Fuller · Mark Murphy · Anne Chow" data-note="Former CEO, AT&amp;T Business · Wall Street Journal Bestseller"><img src="/images/covers/unconscious-bias.webp" alt="The Leader’s Guide to Unconscious Bias, Pamela Fuller · Mark Murphy · Anne Chow" width="306" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="USA Today Bestseller" data-title="The Last Book Written by a Human" data-who="Jeff Burningham" data-note="Becoming wise in the age of AI"><img src="/images/covers/last-book.webp" alt="The Last Book Written by a Human, Jeff Burningham" width="297" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Resilience" data-title="BreakProof" data-who="Jenn Drummond" data-note="First woman to climb the Seven Second Summits · Seven strategies to build resilience"><img src="/images/covers/breakproof.webp" alt="BreakProof, Jenn Drummond" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="#1 International Bestseller" data-title="When Did You Stop Caring?" data-who="Natalie D. Beckerman" data-note="The call to reignite humanity in a world obsessed with efficiency"><img src="/images/covers/when-did-you.webp" alt="When Did You Stop Caring?, Natalie D. Beckerman" width="320" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Everyone Deserves a Great Manager" data-who="Scott Miller · Todd Davis · Victoria Roos Olsson" data-note="The six critical practices for leading a team"><img src="/images/covers/everyone-deserves.webp" alt="Everyone Deserves a Great Manager, Scott Miller · Todd Davis · Victoria Roos Olsson" width="302" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="2026" data-title="The Line Maker" data-who="Brett Armstrong" data-note="Live intentionally. No excuses."><img src="/images/covers/line-maker.webp" alt="The Line Maker, Brett Armstrong" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Get Better" data-who="Todd Davis" data-note="Chief People Officer, FranklinCovey · Fifteen practices for relationships at work"><img src="/images/covers/get-better.webp" alt="Get Better, Todd Davis" width="302" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Leading Loyalty" data-who="Sandy Rogers · Leena Rinne · Shawn Moon" data-note="Cracking the code to customer devotion"><img src="/images/covers/leading-loyalty.webp" alt="Leading Loyalty, Sandy Rogers · Leena Rinne · Shawn Moon" width="306" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Leadership" data-title="Deliver" data-who="Russ Hill · Jared Jones · Tanner Corbridge" data-note="Why some leaders get results and most don’t"><img src="/images/covers/deliver.webp" alt="Deliver, Russ Hill · Jared Jones · Tanner Corbridge" width="320" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Learning &amp; Development" data-title="Hidden Value" data-who="Dr. Keith Keating" data-note="How to reveal the impact of organizational learning"><img src="/images/covers/hidden-value.webp" alt="Hidden Value, Dr. Keith Keating" width="320" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Startups" data-title="The Entrepreneur’s Paradox" data-who="Curtis Morley" data-note="How to overcome the sixteen pitfalls of the startup journey"><img src="/images/covers/entrepreneurs-paradox.webp" alt="The Entrepreneur’s Paradox, Curtis Morley" width="297" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book"><button type="button" class="book-btn" data-cat="Memoir" data-title="Loose Cannons" data-who="Diana Cannon Ragsdale" data-note="A literary family memoir"><img src="/images/covers/loose-cannons.webp" alt="Loose Cannons, Diana Cannon Ragsdale" width="298" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Master Mentors, Vol. 1" data-who="Scott Jeffrey Miller" data-note="Thirty transformative insights from our greatest minds"><img src="/images/covers/master-mentors.webp" alt="Master Mentors, Vol. 1, Scott Jeffrey Miller" width="302" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Master Mentors, Vol. 2" data-who="Scott Jeffrey Miller" data-note="Thirty more insights from FranklinCovey’s On Leadership podcast"><img src="/images/covers/master-mentors-2.webp" alt="Master Mentors, Vol. 2, Scott Jeffrey Miller" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Management Mess to Leadership Success" data-who="Scott Jeffrey Miller" data-note="Thirty challenges to become the leader you would follow"><img src="/images/covers/management-mess.webp" alt="Management Mess to Leadership Success, Scott Jeffrey Miller" width="305" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Marketing Mess to Brand Success" data-who="Scott Jeffrey Miller" data-note="Thirty challenges to transform your organization’s brand"><img src="/images/covers/marketing-mess.webp" alt="Marketing Mess to Brand Success, Scott Jeffrey Miller" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Strikingly Different Selling" data-who="Merrill · Savage · Illig · Colosimo" data-note="Six vital skills to stand out and sell more"><img src="/images/covers/strikingly-different.webp" alt="Strikingly Different Selling, Merrill · Savage · Illig · Colosimo" width="293" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Who Rocked the Boat?" data-who="Curtis Bateman" data-note="A story about navigating the inevitability of change"><img src="/images/covers/who-rocked.webp" alt="Who Rocked the Boat?, Curtis Bateman" width="290" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="FranklinCovey" data-title="Change" data-who="Bateman · Pleshette · Cindrich · Phillips" data-note="How to turn uncertainty into opportunity"><img src="/images/covers/change.webp" alt="Change, Bateman · Pleshette · Cindrich · Phillips" width="313" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="HarperCollins Leadership" data-title="The Ultimate Guide to Great Mentorship" data-who="Scott Jeffrey Miller" data-note="Thirteen roles to making a true impact"><img src="/images/covers/ultimate-mentorship.webp" alt="The Ultimate Guide to Great Mentorship, Scott Jeffrey Miller" width="302" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="Career" data-title="Career on Course" data-who="Scott Jeffrey Miller" data-note="Ten strategies to take your career from accidental to intentional"><img src="/images/covers/career-on-course.webp" alt="Career on Course, Scott Jeffrey Miller" width="291" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="Family" data-title="Parenting: Wrong Turns, Right Lessons" data-who="Scott Jeffrey Miller &amp; Thatcher Ford Miller" data-note="Thirty insights to build lifelong influence with your children"><img src="/images/covers/parenting-wrong-turns.webp" alt="Parenting: Wrong Turns, Right Lessons, Scott Jeffrey Miller &amp; Thatcher Ford Miller" width="320" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="Personal Growth" data-title="Find Your Hidden Strengths" data-who="Matthew E. Poll" data-note="The four archetypes for success and personal growth"><img src="/images/covers/hidden-strengths.webp" alt="Find Your Hidden Strengths, Matthew E. Poll" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="In Development" data-title="Stay Dangerous" data-who="Ara Suppiah, M.D." data-note="Defying a world that wants to tame you"><img src="/images/covers/stay-dangerous.webp" alt="Stay Dangerous, Ara Suppiah, M.D." width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="Maison Vero" data-title="Strong Enough to Listen" data-who="Lisa Duran" data-note="Bridging the communication gap between our choices and our responses"><img src="/images/covers/strong-enough.webp" alt="Strong Enough to Listen, Lisa Duran" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="Forthcoming · 2026" data-title="Carbon-Based Living" data-who="Scott Alan Fossler" data-note="Unlocking the science of human potential"><img src="/images/covers/carbon-based-living.webp" alt="Carbon-Based Living, Scott Alan Fossler" width="307" height="460" loading="lazy" decoding="async"></button></li>
+        <li class="book more"><button type="button" class="book-btn" data-cat="Forthcoming · 2026" data-title="The Inherited Machine" data-who="Dr. Greg Morris" data-note="A human OS for leadership and collaboration"><img src="/images/covers/inherited-machine.webp" alt="The Inherited Machine, Dr. Greg Morris" width="307" height="460" loading="lazy" decoding="async"></button></li>
+    </ul>
+    <div class="readout" id="readout" aria-live="off">
+      <span class="r-cat" id="r-cat">#1 on Amazon in three categories · 2026</span>
+      <span class="r-title" id="r-title">The Daymaker Difference</span>
+      <span class="r-meta" id="r-meta"><span id="r-who">Jay O’Brien &amp; Jeff Jackel</span> · <i id="r-note">Co-founders, Client Giant · The surprisingly profitable practice of caring</i></span>
+    </div>
+    <div class="shelf-more">
+      <p class="note">Hover or tab through a jacket to read its line.</p>
+      <button class="ghostbtn" type="button" id="showall" hidden aria-controls="books" aria-expanded="false">Show all 33</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · IN THIS ISSUE ============ -->
+<section class="section" id="build" aria-labelledby="build-h">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>05 · In this issue</span><span>What we build</span></div></div>
+  <div class="wrap">
+    <div class="issue-head"><div>
+      <p class="kicker rv">In this issue · What we build</p>
+      <h2 class="h2 rv" id="build-h">Three things most ghostwriting firms <span class="turn">can’t do.</span></h2>
+      <p class="lede">Books are platforms, not endpoints.</p>
+    </div></div>
+    <div class="rows">
+      <div class="row">
+        <span class="num" aria-hidden="true">01</span>
+        <div><h3 class="h3">Last-Mile Book Rescue</h3><p class="rsub">For 80%-complete manuscripts that aren’t landing.</p></div>
+        <p class="body">You don’t need a full ghostwriter. You have a manuscript that’s eighty percent there—drafted by you, a coauthor, or an AI that reads like one. We diagnose what’s wrong (missing argument, broken character logic, no felt stakes) and rebuild what isn’t earning the page.</p>
+      </div>
+      <div class="pull">
+        <p>Specialist, not generalist. <span>Embedded, not networked.</span></p>
+        <p class="fine">Most firms operate on a generalist-plus-network model. A salesperson signs you. A project manager checks in. A contracted writer you’ll never speak to drafts your book. <strong>The people you meet at the beginning are the people who write the book.</strong></p>
+      </div>
+      <div class="row">
+        <span class="num" aria-hidden="true">02</span>
+        <div><h3 class="h3">Page to Screen</h3><p class="rsub">For books with a film or series future.</p></div>
+        <p class="body">Platte is a credited screenwriter on Lionsgate’s <i>The Best Christmas Pageant Ever</i> (2024 · 92% Critics / 97% Audiences), with film representation through Plain Text Talent. Authors with a film or series future engage us at the architecture stage—so the book is built for adaptation and positioned for the right Hollywood ear.</p>
+      </div>
+      <div class="row">
+        <span class="num" aria-hidden="true">03</span>
+        <div><h3 class="h3">Curriculum &amp; Productization</h3><p class="rsub">Tools that transform organizations.</p></div>
+        <p class="body">Three decades of curriculum design for FranklinCovey, VitalSmarts (Crucial Conversations), and ZengerFolkman—programs delivered to millions across six continents. When your book leads to a workshop, cohort program, assessment, or course, the architect of the book is the architect of the curriculum. No handoff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · THE MASTHEAD ============ -->
+<section class="section" id="team" aria-labelledby="team-h">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>06 · The masthead</span><span>Who writes it</span></div></div>
+  <div class="wrap">
+    <div class="mh-head">
+      <p class="kicker rv">The masthead</p>
+      <h2 class="h2 rv" id="team-h">The team you meet on the discovery call <span class="turn">is the team that writes your book.</span></h2>
+      <p class="lede">No salesperson hand-off. No anonymous subcontractor in another time zone. Every Straw Dogs project is run end to end by the two people below.</p>
+    </div>
+    <div class="people">
+      <article class="person">
+        <figure><img src="/images/platte.webp" alt="Platte F. Clark" width="560" height="560" loading="lazy"></figure>
+        <div class="hd">
+          <h3 class="name">Platte F. Clark</h3>
+          <p class="role">Founder · Principal</p>
+        </div>
+        <div class="txt">
+          <p class="bio">Credited screenwriter, <em>The Best Christmas Pageant Ever</em> (Lionsgate, 2024) · <em>Bad Unicorn</em> trilogy, Simon &amp; Schuster (250,000+ copies) · Ghostwriter for over thirty nonfiction titles · WGA member.</p>
+        </div>
+      </article>
+      <article class="person">
+        <figure><img src="/images/kennidy.webp" alt="Kennidy Clark" width="560" height="560" loading="lazy"></figure>
+        <div class="hd">
+          <h3 class="name">Kennidy Clark</h3>
+          <p class="role">Senior Writer</p>
+        </div>
+        <div class="txt">
+          <p class="bio">The second pair of expert hands on every Straw Dogs project. Her work spans content development, editorial, training design, scripting, and the production work that takes a manuscript past its first printing—workshop materials, launch copy, podcast scripts, cohort curriculum.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 · HOW WE WORK ============ -->
+<section class="section" id="how" aria-labelledby="how-h">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>07 · How we work</span><span>The spectrum</span></div></div>
+  <div class="wrap">
+    <div class="how-top">
+      <div>
+        <p class="kicker rv">How we work</p>
+        <h2 class="h2 rv" id="how-h">By the hour. <span class="turn">By the week.</span></h2>
+        <p class="lede">Some authors finish in three months; others take a year and a half. Some hire us to architect and walk away. Others stay through publication and the second book. You decide.</p>
+      </div>
+      <div class="gas">
+        <p class="q">You control <span>the gas and the brake.</span></p>
+        <p class="fine">We accelerate when you need us to. We slow down when you need us to. Hourly billing, weekly invoicing. You see what we did and what comes next. <strong>If you have a publisher’s deadline, we’ll meet it.</strong></p>
+      </div>
+    </div>
+    <dl class="contents">
+      <div class="ck" aria-hidden="true"><span>The spectrum</span><span>We meet you where you are</span></div>
+      <div class="crow"><dt><span class="tag">Architecture</span><span class="lead" aria-hidden="true"></span><span class="sub">Blueprint Only</span></dt><dd>We build the load-bearing argument, chapter map, Conviction Engine diagnostic, and voice guide. You take it from there. Often the right choice for authors who can write but can’t see the shape of their own book yet.</dd></div>
+      <div class="crow"><dt><span class="tag">Thought Partnership</span><span class="lead" aria-hidden="true"></span><span class="sub">Architecture + Drafting</span></dt><dd>Architecture, plus structured conversations chapter by chapter. You talk, we transcribe and shape, you respond to what comes back. The fastest path for experts whose superpower is reducing their thoughts to words but not to writing—or who simply don’t have time to write it themselves.</dd></div>
+      <div class="crow"><dt><span class="tag">Full Ghostwrite</span><span class="lead" aria-hidden="true"></span><span class="sub">End to End</span></dt><dd>Discovery, architecture, chapter-by-chapter drafting, refinement, and delivery. A real partnership from first conversation to final page.</dd></div>
+      <div class="crow"><dt><span class="tag">Beyond the Manuscript</span><span class="lead" aria-hidden="true"></span><span class="sub">After-Book</span></dt><dd>Jacket copy, marketing one-sheets, podcast talking points, keynote-ready excerpts, course development. You decide what you want from us.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 08 · FAQ ============ -->
+<section class="section" id="faq" aria-labelledby="faq-h">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>08 · Questions</span><span>Before you call</span></div></div>
+  <div class="wrap faq">
+    <div class="faq-head">
+      <p class="kicker rv">Questions</p>
+      <h2 class="h2 rv" id="faq-h">Before you <span class="turn">call.</span></h2>
+      <p class="lede">The short answers. The long ones happen on the call.</p>
+    </div>
+    <div class="qa">
+      <details><summary>Who actually writes it?</summary><p>The people you meet at the beginning are the people who write the book.</p></details>
+      <details><summary>How long does it take?</summary><p>Some authors finish in three months; others take a year and a half.</p></details>
+      <details><summary>How is it billed?</summary><p>Hourly billing, weekly invoicing. You see what we did and what comes next.</p></details>
+      <details><summary>Can you meet a publisher’s deadline?</summary><p>If you have a publisher’s deadline, we’ll meet it.</p></details>
+      <details><summary>I already have a draft. Do I need a full ghostwriter?</summary><p>You don’t need a full ghostwriter. You have a manuscript that’s eighty percent there. We diagnose what’s wrong and rebuild what isn’t earning the page.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 · ENGAGE ============ -->
+<section class="section engage" id="engage" aria-labelledby="engage-h">
+  <div class="folio" aria-hidden="true"><div class="wrap"><span>09 · Start a project</span><span>One conversation</span></div></div>
+  <p class="ghost-talk" aria-hidden="true">Talk</p>
+  <div class="wrap">
+    <div class="inner">
+      <p class="eyebrow rv">Start a Project</p>
+      <h2 id="engage-h" class="rv">Have a book in you? <em>Let’s talk about it.</em></h2>
+      <p class="p">A book deal, a draft, an idea on a napkin, or just the conviction that you want to write something that lasts. We’ll listen, ask the questions that matter, and help you craft a message worthy of your expertise.</p>
+      <a class="btn btn-white" href="https://calendly.com/platte/progressing_your_book" target="_blank" rel="noopener">Pick a time to talk <span class="arr" aria-hidden="true">→</span></a>
+      <p class="contact"><a href="mailto:platte@strawdogsdev.com">platte@strawdogsdev.com</a><span class="dot" aria-hidden="true">·</span><a href="tel:8016422453">801 · 642 · 2453</a></p>
+      <p class="micro">“call Platte.”<span>Luke Falk</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="free" aria-labelledby="free-h">
+  <div class="wrap">
+    <div class="free-head">
+      <h2 class="h2" id="free-h">Not ready yet? <span class="turn">Start free.</span></h2>
+    </div>
+    <div class="cards">
+      <article class="fcard">
+        <p class="price">Free · 10 min</p>
+        <h3>The Thought Leader Compass</h3>
+        <p>A written read of your authority profile: your Primary and Secondary types, and the kind of book those styles produce.</p>
+        <a href="https://platteclark.com/assessment" target="_blank" rel="noopener">Take the Compass ↗</a>
+      </article>
+      <article class="fcard">
+        <p class="price">Free · One chapter</p>
+        <h3>The Conviction Engine Diagnostic</h3>
+        <p>Send one chapter and find out which of the six stages stalls.</p>
+        <a href="https://conviction-engine-diagnostic.netlify.app/" target="_blank" rel="noopener">Check one chapter, free ↗</a>
+      </article>
+      <article class="fcard">
+        <p class="price mute">Project Engagement</p>
+        <h3>The Complete Manuscript Diagnostic</h3>
+        <p>The full Straw Dogs read on a draft manuscript.</p>
+        <a href="mailto:platte@strawdogsdev.com?subject=Complete%20Manuscript%20Diagnostic">Ask about a full manuscript read →</a>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Straw Dogs Development home"><img src="/images/dog-mark.png" alt="" width="363" height="238" loading="lazy"><span class="wordmark">Straw Dogs <span>Development</span></span></a>
+        <p class="f-tag">Behavior-change books with chapters. Not transcripts with covers.</p>
+        <p class="f-contact"><a href="mailto:platte@strawdogsdev.com">platte@strawdogsdev.com</a><br><a href="tel:8016422453">801 · 642 · 2453</a><br>American Fork, Utah</p>
+      </div>
+      <div>
+        <p class="f-label">Across the Brand</p>
+        <ul class="f-list">
+          <li><a href="https://platteclark.com" target="_blank" rel="noopener">platteclark.com</a><span>Principal’s site</span></li>
+          <li><a href="https://authorunknown.fm" target="_blank" rel="noopener">authorunknown.fm</a><span>The podcast</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="f-label">Platte’s Representation</p>
+        <ul class="f-list">
+          <li><span>Grey + Miller</span><span>Nonfiction</span></li>
+          <li><span>East West Literary</span><span>Fiction</span></li>
+          <li><span>Plain Text Talent</span><span>Film / TV</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom"><span>© 2026 Straw Dogs Development</span><em>Story is a technology. Not a talent.</em></div>
+  </div>
+</footer>
+</CoverLayout>
