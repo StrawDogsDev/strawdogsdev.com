@@ -1,0 +1,140 @@
+---
+// Homepage layout for "The Cover" design. Self-contained styles (cover.css),
+// so it does not load the Tailwind global.css used by /partners.
+import '../styles/cover.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "Straw Dogs builds books for speakers, founders and experts that move readers to act, fill speaking calendars, and open doors. Over thirty titles.",
+  ogImage = "https://strawdogsdev.com/images/og-image.jpg",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Straw Dogs Development" />
+    <link rel="canonical" href="https://strawdogsdev.com/" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strawdogsdev.com/" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/images/covers/daymakers.webp" fetchpriority="high" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Mobile menu
+  const burger = document.querySelector('.burger'), menu = document.getElementById('mmenu');
+  burger.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') !== 'true';
+    burger.setAttribute('aria-expanded', open); menu.classList.toggle('open', open);
+  });
+  menu.addEventListener('click', e => { if (e.target.closest('a')) { burger.setAttribute('aria-expanded', 'false'); menu.classList.remove('open'); } });
+
+  // Section-head reveal: 10px fade-up, once. Visible by default without JS.
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('rv-on');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  }
+
+  // Shelf: collapse to 18, readout on hover/focus
+  const books = document.getElementById('books'), all = document.getElementById('showall');
+  books.classList.add('collapsed'); all.hidden = false;
+  all.addEventListener('click', () => {
+    const c = books.classList.toggle('collapsed');
+    all.textContent = c ? 'Show all 33' : 'Show fewer'; all.setAttribute('aria-expanded', !c);
+  });
+  const ro = { cat: r('r-cat'), title: r('r-title'), who: r('r-who'), note: r('r-note') };
+  function r(id) { return document.getElementById(id); }
+  let lit = books.querySelector('.book-btn'); lit.classList.add('lit');
+  const show = b => { lit && lit.classList.remove('lit'); lit = b; b.classList.add('lit'); for (const k in ro) ro[k].textContent = b.dataset[k]; };
+  books.addEventListener('mouseover', e => { const b = e.target.closest('.book-btn'); if (b) show(b); });
+  books.addEventListener('focusin', e => { const b = e.target.closest('.book-btn'); if (b) show(b); });
+  books.addEventListener('click', e => { const b = e.target.closest('.book-btn'); if (b) show(b); });
+
+  // The reel. Crossfade, 8 s per quote, only in view, one cycle, ends on Luke.
+  // Never touches wheel, touch or scroll position.
+  const reel = document.getElementById('words'), wrap = document.getElementById('slides');
+  if (reduce || !wrap.animate) return;                   // static: all four stacked
+  const slides = [...wrap.querySelectorAll('.slide')], tabs = [...reel.querySelectorAll('.tab')];
+  const pauseBtn = document.getElementById('pause'), DUR = 8000;
+  let i = 0, anim = null, auto = true, userPaused = false, hover = false, focus = false, seen = false;
+  reel.classList.add('js'); wrap.classList.add('on');
+  const icon = { pause: '<rect x="2" y="1" width="3" height="10"/><rect x="7" y="1" width="3" height="10"/>', play: '<path d="M2 1l9 5-9 5z"/>' };
+  const label = () => {
+    const running = auto && !userPaused;
+    pauseBtn.querySelector('svg').innerHTML = running ? icon.pause : icon.play;
+    pauseBtn.querySelector('span').textContent = running ? 'Pause' : (auto ? 'Play' : 'Replay');
+    pauseBtn.setAttribute('aria-pressed', !running);
+  };
+  const sync = () => { if (!anim) return; (auto && !userPaused && !hover && !focus && seen && !document.hidden) ? anim.play() : anim.pause(); };
+  function go(n, byUser) {
+    wrap.setAttribute('aria-live', byUser ? 'polite' : 'off');
+    if (anim) { anim.cancel(); anim = null; }
+    i = n;
+    slides.forEach((s, k) => { const on = k === n; s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', !on); });
+    tabs.forEach((t, k) => { const on = k === n; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; t.querySelector('.fill').style.transform = 'scaleX(0)'; });
+    const fill = tabs[n].querySelector('.fill');
+    if (auto && n < slides.length - 1) {
+      anim = fill.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: DUR, easing: 'linear', fill: 'forwards' });
+      anim.pause(); anim.onfinish = () => go(i + 1, false); sync();
+    } else {
+      if (n === slides.length - 1 && auto) { auto = false; }   // one full cycle: rest on Luke
+      fill.style.transform = 'scaleX(1)';
+    }
+    label();
+  }
+  tabs.forEach((t, k) => {
+    t.addEventListener('click', () => { auto = false; go(k, true); });
+    t.addEventListener('keydown', e => {
+      const d = { ArrowRight: 1, ArrowLeft: -1, Home: -99, End: 99 }[e.key]; if (d === undefined) return;
+      e.preventDefault(); const n = Math.max(0, Math.min(3, d === -99 ? 0 : d === 99 ? 3 : (k + d + 4) % 4));
+      auto = false; go(n, true); tabs[n].focus();
+    });
+  });
+  pauseBtn.addEventListener('click', () => {
+    if (!auto) { auto = true; userPaused = false; hover = false; go(i === slides.length - 1 ? 0 : i, true); return; }
+    userPaused = !userPaused; if (!userPaused) hover = false; label(); sync();
+  });
+  reel.addEventListener('mouseenter', () => { hover = true; sync(); });
+  reel.addEventListener('mouseleave', () => { hover = false; sync(); });
+  reel.addEventListener('focusin', e => { focus = e.target !== pauseBtn; sync(); });
+  reel.addEventListener('focusout', e => { if (!reel.contains(e.relatedTarget)) { focus = false; sync(); } });
+  document.addEventListener('visibilitychange', sync);
+  new IntersectionObserver(es => { seen = es[0].isIntersecting; sync(); }, { threshold: .5 }).observe(wrap);
+  go(0, false);
+})();
+
+    </script>
+  </body>
+</html>
